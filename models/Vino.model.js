@@ -3,27 +3,27 @@ const {Schema, model} = require("mongoose");
 const vinoSchema = new Schema({
     nombre:{
         type: String,
-        required: true
+        // required: true
     },
     tipoVino: {
         type: String,
-        enum: [Tinto, Blanco, Rosado],
-        required: true
+        enum: ["Tinto", "Blanco", "Rosado"],
+        // required: true
     },
     añada: {
         type: String,
-        enum: [Jóven, Crianza, Reserva, Gran - Reserva],
-        required: true
+        enum: ["Jóven", "Crianza", "Reserva", "Gran Reserva"],
+        // required: true
     },
     año: {
         type: Number,
-        required: true
+        // required: true
     },
 
     denOrigen: {
-        type: String,
-        enum: [Calatayud, Cava, Machuela, Ribera-del-Duero, Navarra, Rioja, Rueda, Terra - Alta, Uclés, Utiel, Rías-Baixas],
-        required: true
+        type: [String],
+        // enum: ["Calatayud", "Cava", "Machuela", "Ribera del Duero", "Navarra", "Rioja", "Rueda", "Terra Alta", "Uclés", "Utiel", "Rías Baixas"],
+        // required: true
     },
 
     puntuación: {
@@ -31,9 +31,9 @@ const vinoSchema = new Schema({
         enum: [0, 1, 2, 3, 4, 5]
     },
     maridaje: {
-        type: String,
-        enum: [Ensaladas, Fiambres - y - Patés, Carnes, Pescados - y - Mariscos, Pasta - y - Arroz, Postres, Quesos, Chocolate],
-        required: true
+        type: [String],
+        // enum: ["Ensaladas", "Fiambres y Patés", "Carnes", "Pescados y Mariscos", "Pasta y Arroz", "Postres", "Quesos", "Chocolate"],
+        // required: true
     },
     adminVinos: {
         type: Schema.Types.ObjectId,
