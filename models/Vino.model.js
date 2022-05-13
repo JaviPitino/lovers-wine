@@ -1,15 +1,18 @@
-const {
-    Schema,
-    model
-} = require("mongoose");
+const {Schema, model} = require("mongoose");
 
 const vinoSchema = new Schema({
+    nombre:{
+        type: String,
+        required: true
+    },
     tipoVino: {
-        type: [Tinto, Blanco, Rosado],
+        type: String,
+        enum: [Tinto, Blanco, Rosado],
         required: true
     },
     añada: {
-        type: [Jóvenes, Crianza, Reserva, Gran - Reserva],
+        type: String,
+        enum: [Jóven, Crianza, Reserva, Gran - Reserva],
         required: true
     },
     año: {
@@ -19,7 +22,7 @@ const vinoSchema = new Schema({
 
     denOrigen: {
         type: String,
-        enum: [Calatayud, Cava, Machuela, Monterrei, Navarra, Rioja, Rueda, Terra - Alta, Uclés, Utiel, Valdeorras],
+        enum: [Calatayud, Cava, Machuela, Ribera-del-Duero, Navarra, Rioja, Rueda, Terra - Alta, Uclés, Utiel, Rías-Baixas],
         required: true
     },
 
