@@ -1,1 +1,19 @@
 <h1>login</h1>
+
+<form action="/auth/login" method="POST">
+
+    <label for="email">Email: </label>
+    <input type="email" name="email">
+    <br>
+    <br>
+    <label for="password">Contraseña: </label>
+    <input type="password" name="password">
+    <br>
+    <br>
+
+    <h5 id="error-mensaje-login"> {{errorMensaje}} </h5>
+    <br>
+
+    <button> Acceder </button>
+
+</form>

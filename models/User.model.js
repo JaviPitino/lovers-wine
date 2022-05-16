@@ -16,11 +16,20 @@ const userSchema = new Schema({
       unique: true,
       required: true 
     },
+    password2:{
+      type: String,
+      unique: true,
+      required: true 
+    },
     admin: {
       type: Boolean,
       default: false
-    }   
-});
+    },   
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const UserModel = model("User", userSchema);
 

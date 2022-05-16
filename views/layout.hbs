@@ -15,8 +15,15 @@
             <li><a href="/admin/admin">Perfil</a></li> --}}
          </ul>
          <ul>
-             <li><a href="/auth/signup">SingUp</a></li>
-             <li><a href="/auth/login">Login</a></li>
+            {{#if userIsActive}}
+               {{!-- <li><a href="/user">Perfil</a></li> --}}
+               <form action="/auth/logout" method="post">
+                  <button>Cerrar sesión</button>
+               </form>
+               {{else}}
+               <li><a href="/auth/signup">SingUp</a></li>
+               <li><a href="/auth/login">Login</a></li>
+            {{/if}}
          </ul>
       </nav>
    <body>
