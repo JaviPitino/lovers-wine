@@ -10,11 +10,19 @@ const CommentModel = require("../models/Comment.model.js")
 router.get("/", async (req, res, next) => {
     const { _id } = req.session.user
     try {
+        let adminRole;
         const wineUser = await UserModel.findById(_id)
+        console.log(wineUser)
+        if (wineUser.role === "admin") {
+            adminRole = true
 
+        }
         res.render("user/user.hbs", {
-            wineUser
+            wineUser,
+            adminRole
         })
+
+        
     } catch(err){next(err)}
     
 })
