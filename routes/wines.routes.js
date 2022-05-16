@@ -20,7 +20,7 @@ router.get("/", (req, res, next) => {
 // GET ("/wines/tinto") -> Mostrar vista con los vinos tintos
 router.get("/tinto", (req, res, next) => {
 
-    let newArr = []
+  let newArr = []
   vinosCreados.forEach((eachWine) => {
     if (eachWine.tipoVino === "Tinto") {
       newArr.push(eachWine)

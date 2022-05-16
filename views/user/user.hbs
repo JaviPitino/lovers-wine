@@ -1,10 +1,13 @@
 <h1>User</h1>
 
+
+  <li>{{wineUser.username}}</li> 
+
+
 {{#if isAdmin}}
     <button> Lista de vinos creados </button>
     <button> Crear vinos </button>
-{{/if}}
-
-{{#if isUser}}
+    {{else}}
     <p> Debería de aparecer la wish list favorita del usuario </p>
 {{/if}}
+

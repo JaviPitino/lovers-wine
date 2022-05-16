@@ -7,8 +7,16 @@ const VinoModel = require("../models/Vino.model.js");
 const CommentModel = require("../models/Comment.model.js")
 
 // GET ("/profile") ->
-router.get("/", (req, res, next) => {
-    res.render("user/user.hbs")
+router.get("/", async (req, res, next) => {
+    const { _id } = req.session.user
+    try {
+        const wineUser = await UserModel.findById(_id)
+
+        res.render("user/user.hbs", {
+            wineUser
+        })
+    } catch(err){next(err)}
+    
 })
 
 module.exports = router;
