@@ -8,11 +8,17 @@
 <br>
 <label for="tipoVino">Tipo Vino: </label>
 <select name="tipoVino" multiple="true">
-     <option value="Tinto">Tinto</option>
+    {{#each foundVino}}
+     <option value="{{this._id}}">{{this.tipoVino}}</option>
+     {{/each}}
 </select>
 <br>
 <label for="anada">Añada: </label>
-<input type="text" name="anada">
+<select name="anada" multiple="true">
+    {{#each foundVino}}
+     <option value="{{this._id}}">{{this.anada}}</option>
+     {{/each}}
+</select>
 <br>
 <label for="ano">Año: </label>
 <input type="text" name="ano">

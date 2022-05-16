@@ -21,9 +21,7 @@ router.get("/", (req, res, next) => {
 router.get("/tinto", async (req, res, next) => {
 
   try {
-    const vinoTinto = await VinoModel.find({
-      tipoVino: "Tinto"
-    })
+    const vinoTinto = await VinoModel.find({tipoVino: "Tinto"})
 
     res.render("wines/tinto.hbs", {
       vinoTinto
@@ -73,15 +71,21 @@ router.get("/:id/details", async (req, res, next) => {
     res.render("wines/details.hbs", {
       vinoDetalle
     })
-  } catch (err) {
-    next(err)
-  }
+  } catch (err) {next(err)}
 })
 
 // GET (/wines/create) -> Crear más vinos
 //! Crear un enlace para admin en el profile de admin
-router.get("/create", (req, res, next) => {
-  res.render("wines/wines-create.hbs")
+router.get("/create", isAdmin, async (req, res, next) => {
+  try{
+    const foundVino = await VinoModel.find()
+    res.render("wines/wines-create.hbs", {
+      foundVino 
+    })
+
+  } catch(err){next(err)}
+
+ 
 })
 
 //POST -> Crear vinos desde un formulario en la BD
