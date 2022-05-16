@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px;
+  font-family: 'Lato', sans-serif;
 }
 
 a {
@@ -12,5 +15,14 @@ h1 {
 }
 
 #error-mensaje {
-  color: darkred
+  color: darkred;
+}
+
+div {
+  width: 95%;
+  background-color: #7c1f24;
+  margin: 20px 50px;
+  padding: 50px;
+  font: 100px;
+
 }

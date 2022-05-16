@@ -29,7 +29,15 @@
 <label for="puntuacion">Puntuación: </label>
 <input type="text" name="puntuacion">
 
+<form action="/upload/book-cover/{{book._id}}" method="POST" enctype="multipart/form-data">
+
+  <label for="image"> Imagen: </label>
+  <input type="file" name="image">
+
+  <button type="submit"> Añadir Imagen </button>
+</form>
 
 <button> Añadir Vino </button>
 
 </form>
+
