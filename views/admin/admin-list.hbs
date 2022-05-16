@@ -1,0 +1,8 @@
+<h1>Página de Admin</h1>
+
+<div>
+    {{#each listVino}}
+    <li> <a href="/admin/{{this._id}}/details"> {{listVino.nombre}} </a> </li>
+    <li> <a href="/admin/{{this._id}}/details"> {{listVino.tipoVino}} </a> </li>
+    {{/each}}
+</div>

@@ -61,7 +61,7 @@ router.post("/signup", async (req, res, next) => {
         req.session.user = foundUser;
         req.app.locals.userIsActive = true;
 
-        res.redirect("/user/user.hbs") // ! Estamos redirigiendo al perfil de usuario
+        res.redirect("/profile") // ! Estamos redirigiendo al perfil de usuario
 
     } catch(err){next(err)}
 })
@@ -104,8 +104,10 @@ router.post("/login", async (req, res, next) => {
         }
         req.session.user = foundUser;
         req.app.locals.userIsActive = true;
+        req.app.locals.isAdmin = true;
+        req.app.locals.isUser = true;
 
-        res.redirect("/user")
+        res.redirect("/profile")
 
     } catch(err){next(err)}
 
@@ -116,6 +118,9 @@ router.post("/logout", (req, res, next) => {
 
     req.session.destroy();
     req.app.locals.userIsActive = false;
+    req.app.locals.isAdmin = false;
+    req.app.locals.isUser = false;
+
 
     res.redirect("/");
 })

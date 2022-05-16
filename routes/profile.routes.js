@@ -6,10 +6,9 @@ const UserModel = require("../models/User.model.js");
 const VinoModel = require("../models/Vino.model.js");
 const CommentModel = require("../models/Comment.model.js")
 
-// GET ("/admin") -> Mostrar vista del perfil de admin con la lista de vinos
-
-// POST ("/admin") -> 
-
-
+// GET ("/profile") ->
+router.get("/", (req, res, next) => {
+    res.render("user/user.hbs")
+})
 
 module.exports = router;
