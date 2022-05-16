@@ -18,7 +18,7 @@ router.post("/signup", async (req, res, next) => {
 
     // VALIDACIONES
     // 1. Validacion -> Si la info está completa
-    if( username === "" || enail === "" || password === "" ) {
+    if( username === "" || email === "" || password === "" ) {
         res.render("auth/signup.hbs", {
             errorMensaje: "Debe rellenar todos los campos"
         })
