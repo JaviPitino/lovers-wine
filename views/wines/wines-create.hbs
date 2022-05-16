@@ -1,1 +1,29 @@
 <h2>wines-create</h2>
+
+
+
+<form action="/wines/create" method="POST">
+<label for="nombre">Nombre: </label>
+<input type="text" name="nombre">
+<br>
+<label for="tipoVino">Tipo Vino: </label>
+<select name="tipoVino" multiple="true">
+     <option value="Tinto">Tinto</option>
+</select>
+<br>
+<label for="anada">Añada: </label>
+<input type="text" name="anada">
+<br>
+<label for="ano">Año: </label>
+<input type="text" name="ano">
+<br>
+<label for="denOrigen">Denominación de Origen: </label>
+<input type="text" name="denOrigen">
+<br>
+<label for="puntuacion">Puntuación: </label>
+<input type="text" name="puntuacion">
+
+
+<button> Añadir Vino </button>
+
+</form>

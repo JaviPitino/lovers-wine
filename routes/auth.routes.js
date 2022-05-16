@@ -58,7 +58,7 @@ router.post("/signup", async (req, res, next) => {
         const createUser = await UserModel.create({
             username, email, password: hashPassword, password2: hashPassword2
         })
-        req.session.user = foundUser;
+        req.session.user = createUser;
         req.app.locals.userIsActive = true;
 
         res.redirect("/profile") // ! Estamos redirigiendo al perfil de usuario
