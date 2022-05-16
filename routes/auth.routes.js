@@ -104,8 +104,7 @@ router.post("/login", async (req, res, next) => {
         }
         req.session.user = foundUser;
         req.app.locals.userIsActive = true;
-        req.app.locals.isAdmin = true;
-        req.app.locals.isUser = true;
+        // req.app.locals.isAdmin = true;
 
         res.redirect("/profile")
 
@@ -118,8 +117,8 @@ router.post("/logout", (req, res, next) => {
 
     req.session.destroy();
     req.app.locals.userIsActive = false;
-    req.app.locals.isAdmin = false;
-    req.app.locals.isUser = false;
+    // req.app.locals.isAdmin = false;
+
 
 
     res.redirect("/");
