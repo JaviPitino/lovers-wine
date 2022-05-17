@@ -6,10 +6,6 @@ const UserModel = require("../models/User.model.js");
 const VinoModel = require("../models/Vino.model.js");
 const CommentModel = require("../models/Comment.model.js")
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 6078ca5584f2bb0c50d34b8d58069e4df70cad60
 // GET ("/profile") ->
 router.get("/", async (req, res, next) => {
     const { _id } = req.session.user
