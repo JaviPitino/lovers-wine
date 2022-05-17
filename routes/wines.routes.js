@@ -133,7 +133,12 @@ router.get("/:id/upload", async (req, res, next) => {
 try{
   const vinoActualizado = await VinoModel.findById(id)
   res.render("wines/wines-edit.hbs", {
-    vinoActualizado
+    vinoActualizado,
+    tipoVino, 
+    anada,
+    denOrigen,
+    maridaje,
+    score
 })
 
 } catch (err) {next(err)}
@@ -167,7 +172,7 @@ router.post("/:id/upload", async (req, res, next) => {
 router.post("/:id/delete", async (req, res, next) => {
 
   const {id} = req.params
-  
+
   try {
     await VinoModel.findByIdAndDelete(id)
 
