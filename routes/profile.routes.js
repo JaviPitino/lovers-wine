@@ -43,10 +43,11 @@ router.get("/", async (req, res, next) => {
 //         }
 //         res.render("user/user.hbs", {
 //             wineUser,
-//             adminRole
+//             adminRole,
+//             fotoPerfil
 //         })
 
         
-//     } catch(err){next(err)}
+// //     } catch(err){next(err)}
 
 module.exports = router;

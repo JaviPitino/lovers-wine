@@ -10,16 +10,16 @@
     <li>Puntuación: {{ vinoDetalle.puntuacion}}, sobre 5</li>
     <li>Maridaje: {{ vinoDetalle.maridaje}}</li>
 
-    <img src="{{svinoDetalle.vinoPicture}}" alt="img" width="200px">
+    <img src="{{vinoDetalle.vinoPicture}}" alt="img" width="200px">
 
 
   
-   <a href="/wines/{{vinoActualizado._id}}/upload">Actualizar </a> 
+   <a href="/wines/{{vinoDetalle._id}}/upload"><button> Actualizar </button>  </a> 
 
-{{!-- 
-   <form action="/wines/{{vinoDetalle._id}}}/delete" method="POST">
-   <a href="/wines"> Borrar </a> 
-   </form> --}}
+
+   <form action="/wines/{{vinoDetalle._id}}/delete" method="POST">
+   <button> Borrar</button>
+   </form> 
    
  
    
