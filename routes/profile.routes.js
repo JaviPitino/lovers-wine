@@ -16,12 +16,27 @@ router.get("/", async (req, res, next) => {
         if (wineUser.role === "admin") {
             adminRole = true
         }
+        // const likeWine = await UserModel.find({ wishList: _id }).select("nombre")
+        // console.log(likeWine)
+
         res.render("user/user.hbs", {
             wineUser,
             adminRole
+            // likeWine: _id
         })
     } catch(err){next(err)}
 })
+
+router.post("/wish-list", async (req, res, next) => {
+    const { _id } = req.session.user
+    try {
+        const listVino = await UserModel.create({ 
+            wishList: _id
+        })
+
+    } catch(err){next(err)}
+})
+
 
 //! CLOUDINARY
 

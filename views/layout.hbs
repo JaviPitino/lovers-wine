@@ -9,46 +9,52 @@
       <link rel="stylesheet" href="/stylesheets/style.css" />
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
-   </head>
-      <nav>
-
-                  <div><a href="/">Home</a></div>
-            {{!-- <li><a href="/wines/wines">Vinos</a></li>
-            <li><a href="/admin/admin">Perfil</a></li> --}}
-               
-            {{#if userIsActive}}
-              
-            
-               {{!-- <li><a href="/user">Perfil</a></li> --}}
-                   <a href="/wines">Vinos</a>
-                   
-                         <form action="/auth/logout" method="post">
-                              <button>Cerrar sesión</button>
-                          </form>
-            {{else}}
-                 
-                   
-                         <a href="/auth/signup">SingUp</a>
-                          <a href="/auth/login">Login</a>
-                 
-               
-            {{/if}}
-         
-            {{#if isAdmin}}
-                     <form action="/profile" method="post">
-                           <button> Acceso admin </button>
-                     </form>
-            {{/if}}
-
-            
-            
-      </nav>
    <body>
+      <nav>
+         <div id="container">
+            <div id="logo">
+               <img src="https://www.vinetur.com/imagenes/2017/mayo/23/copa_de_vino.jpg" alt="imagenlogo" width="50px">
+               <p>Wine.Routes}</p>
+               <a href="/">Home</a>
+               {{!-- <li><a href="/wines/wines">Vinos</a></li>
+               <li><a href="/admin/admin">Perfil</a></li> --}}
+               {{#if userIsActive}}
+                  {{!-- <li><a href="/user">Perfil</a></li> --}}
+               <a href="/wines">Vinos</a>
+            </div>
+             {{!-- </div>
+               <div id="container2"> --}}
+            <div class="btn-login">
+                  <a href="/profile">Ver Perfil</a>
+            
+                  <form action="/auth/logout" method="post">
+                     <button>Cerrar sesión</button>
+                  </form>
+               {{else}}
+               <div class="btn-auth">
+                     <a href="/auth/signup">SingUp</a>
+                     <a href="/auth/login">Login</a>
+               </div>
+                  
+                 
+               {{/if}}
+               {{!-- {{#if isAdmin}}
+                  <form action="/profile" method="post">
+                     <button> Acceso admin </button>
+                  </form>
+               {{/if}} --}}
+            </div>
+         </div> 
+      </nav>
 
       {{{body}}}
 
+      <footer>
+         <span>Creado por María Diez & Javi López</span>
+      </footer>
+
       <script src="/js/script.js"></script>
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
    </body>
 
 </html>

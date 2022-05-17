@@ -111,9 +111,8 @@ router.post("/create", async (req, res, next) => {
 
 })
 
-// GET 
+// GET "/wines/list" -> Buscamos vinos creados por el usuario
 router.get("/list", async (req, res, next) => {
-  
   const { _id } = req.session.user
   try {
     const vinoCreadoUsuario = await VinoModel.find({adminVinos: _id})
@@ -124,6 +123,8 @@ router.get("/list", async (req, res, next) => {
   } catch (err) {next(err)}
 
 })
+
+
 
 // GET ("/wines/:id/details") -> Mostrar vista 
 router.get("/:id/details", async (req, res, next) => {
@@ -179,9 +180,7 @@ router.post("/:id/upload", async (req, res, next) => {
   }catch (err) {next(err)}
 })
 
-
 //? BORRAR VINOS
-
 router.post("/:id/delete", async (req, res, next) => {
 
   const {id} = req.params
