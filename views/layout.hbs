@@ -14,38 +14,38 @@
          <div id="container">
             <div id="logo">
                <img src="https://www.vinetur.com/imagenes/2017/mayo/23/copa_de_vino.jpg" alt="imagenlogo" width="50px">
-               <p>Wine.Routes}</p>
+            </div>
+            <div id="container-2">
                <a href="/">Home</a>
+            
+         
                {{!-- <li><a href="/wines/wines">Vinos</a></li>
                <li><a href="/admin/admin">Perfil</a></li> --}}
                {{#if userIsActive}}
                   {{!-- <li><a href="/user">Perfil</a></li> --}}
-               <a href="/wines">Vinos</a>
-            </div>
-             {{!-- </div>
-               <div id="container2"> --}}
-            <div class="btn-login">
+                  <a href="/wines">Vinos</a>
                   <a href="/profile">Ver Perfil</a>
-            
+            </div>
+         </div> 
+         <hr>
+         <div class="container-3">
                   <form action="/auth/logout" method="post">
                      <button>Cerrar sesión</button>
                   </form>
                {{else}}
-               <div class="btn-auth">
+                  <div class="btn-auth">
                      <a href="/auth/signup">SingUp</a>
                      <a href="/auth/login">Login</a>
-               </div>
-                  
-                 
+                  </div>
                {{/if}}
-               {{!-- {{#if isAdmin}}
-                  <form action="/profile" method="post">
-                     <button> Acceso admin </button>
-                  </form>
-               {{/if}} --}}
-            </div>
-         </div> 
-      </nav>
+                     {{!-- {{#if isAdmin}}
+                        <form action="/profile" method="post">
+                           <button> Acceso admin </button>
+                        </form>
+                   {{/if}} --}}
+              
+         </div>
+     </nav>
 
       {{{body}}}
 
