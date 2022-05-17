@@ -10,7 +10,7 @@
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
    <body>
-      <nav>
+      <nav id="nav-bar">
          <div id="container">
             <div id="logo">
                <img src="https://www.vinetur.com/imagenes/2017/mayo/23/copa_de_vino.jpg" alt="imagenlogo" width="50px">
@@ -26,9 +26,9 @@
                   <a href="/wines">Vinos</a>
                   <a href="/profile">Ver Perfil</a>
             </div>
-         </div> 
+         </div>
          <hr>
-         <div class="container-3">
+         
                   <form action="/auth/logout" method="post">
                      <button>Cerrar sesión</button>
                   </form>
@@ -44,7 +44,7 @@
                         </form>
                    {{/if}} --}}
               
-         </div>
+         
      </nav>
 
       {{{body}}}
