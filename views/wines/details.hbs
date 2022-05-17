@@ -1,10 +1,10 @@
 <h1>wines details</h1>
 
-      {{ vinoDetalle.vinoPicture}}
+      {{vinoDetalle.vinoPicture}}
 
-    <li>Nombre: {{ vinoDetalle.nombre}}</li>
-    <li>Tipo de Vino: {{ vinoDetalle.tipoVino}}</li>
-    <li>Añada: {{ vinoDetalle.anada}}</li>
+    <li>Nombre: {{vinoDetalle.nombre}}</li>
+    <li>Tipo de Vino: {{vinoDetalle.tipoVino}}</li>
+    <li>Añada: {{vinoDetalle.anada}}</li>
     <li>Año: {{ vinoDetalle.ano}}</li>
     <li>Denominación de Origen:{{ vinoDetalle.denOrigen}}</li>
     <li>Puntuación: {{ vinoDetalle.puntuacion}}, sobre 5</li>
@@ -18,7 +18,11 @@
 
 
    <form action="/wines/{{vinoDetalle._id}}/delete" method="POST">
+
    <button> Borrar</button>
+
+   <a href="/wines/create"> Crear vinos </a>
+
    </form> 
    
  

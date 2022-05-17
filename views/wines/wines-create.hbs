@@ -10,7 +10,7 @@
 
   <label for="tipoVino">Tipo Vino: </label>
   <select name="tipoVino" value=>
-    {{#each  tipoVino}}
+    {{#each tipoVino}}
       <option value="{{ this }}">{{ this }}</option>
     {{/each}}
   </select>
@@ -42,7 +42,7 @@
   <label for="puntuacion">Puntuación:
   </label>
   <select name="puntuacion">
-  {{#each score}}
+  {{#each puntuacion}}
   <option value="{{ this }}">{{ this }}</option>
   {{/each}}
   </select>
@@ -60,6 +60,6 @@
 
 
   <button>
-  <a href="/wines/{{ createVino._id }}/details"></a>  Añadir Vino </button>
+  <a href="/wines/{{createVino._id}}/details">  Añadir Vino </a></button>
 
 </form>

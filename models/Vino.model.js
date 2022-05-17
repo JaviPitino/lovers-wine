@@ -4,7 +4,7 @@ const tipoVino = require("../utils/tipoVino.js")
 const anada = require("../utils/anada.js")
 const denOrigen = require("../utils/denOrigen.js")
 const maridaje = require("../utils/maridaje.js")
-const score= require("../utils/puntuacion.js")
+const puntuacion= require("../utils/puntuacion.js")
 
 const vinoSchema = new Schema({
     nombre:{
@@ -34,7 +34,7 @@ const vinoSchema = new Schema({
 
     puntuacion: [{
         type: String,
-        enum: score
+        enum: puntuacion
     }],
     maridaje: [{
         type: String,

@@ -4,7 +4,7 @@ const tipoVino = require("../utils/tipoVino.js")
 const anada = require("../utils/anada.js")
 const denOrigen = require("../utils/denOrigen.js")
 const maridaje = require("../utils/maridaje.js")
-const score = require("../utils/puntuacion.js")
+const puntuacion = require("../utils/puntuacion.js")
 
 const bcryptjs = require("bcryptjs")
 
@@ -80,15 +80,16 @@ router.get("/create",  (req, res, next) => {
               anada,
               denOrigen,
               maridaje,
-              score
+              puntuacion
   })
 })
 
 
 //POST -> Crear vinos desde un formulario en la BD
-router.post("/create",  async (req, res, next) => {
+router.post("/create", async (req, res, next) => {
 
-  const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje, vinoPicture } = req.body
+  const { _id } = req.session.user
+  const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje, adminVinos, vinoPicture } = req.body
 
   try {
     const createVino = await VinoModel.create({
@@ -99,11 +100,27 @@ router.post("/create",  async (req, res, next) => {
       denOrigen,
       puntuacion,
       maridaje,
+      adminVinos: _id,
       vinoPicture
     })
-    console.log(createVino)
+    
+    // console.log(createVino)
     res.redirect(`/wines/${createVino._id}/details`)
 
+  } catch (err) {next(err)}
+
+})
+
+// GET 
+router.get("/list", async (req, res, next) => {
+  
+  const { _id } = req.session.user
+  try {
+    const vinoCreadoUsuario = await VinoModel.find({adminVinos: _id})
+    console.log(vinoCreadoUsuario)
+  res.render("wines/wines-list.hbs", {
+    vinoCreadoUsuario
+  })
   } catch (err) {next(err)}
 
 })
@@ -122,35 +139,31 @@ router.get("/:id/details", async (req, res, next) => {
   } catch (err) {next(err)}
 })
 
-
-
 //? ACTUALIZAR VINOS
-
 //GET "/wines/:id/upload" => Actualizar detalles del vino
-
 router.get("/:id/upload", async (req, res, next) => {
   const { id } = req.params
-try{
-  const vinoActualizado = await VinoModel.findById(id)
-  res.render("wines/wines-edit.hbs", {
-    vinoActualizado,
-    tipoVino, 
-    anada,
-    denOrigen,
-    maridaje,
-    score
-})
+  try{
+    const vinoActua = await VinoModel.findById(id)
+    res.render("wines/wines-edit.hbs", {
+      vinoActua,
+      tipoVino, 
+      anada,
+      denOrigen,
+      puntuacion,
+      maridaje  
+    })
 
-} catch (err) {next(err)}
+  } catch (err) {next(err)}
 
 })
 
 router.post("/:id/upload", async (req, res, next) => {
   const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje, vinoPicture } = req.body
   const {id} = req.params
-
+  console.log(req.body)
   try{
-  const vinoActua = await VinoModel.findByIdAndUpdate(id, {
+   await VinoModel.findByIdAndUpdate(id, {
     nombre,
     tipoVino,
     anada,
@@ -160,8 +173,8 @@ router.post("/:id/upload", async (req, res, next) => {
     maridaje,
     vinoPicture
   })
-
-  res.redirect(`/wines/${vinoActua._id}/details`)
+ 
+  res.redirect(`/wines/${id}/details`)
 
   }catch (err) {next(err)}
 })
