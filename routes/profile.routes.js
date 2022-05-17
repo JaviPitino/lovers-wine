@@ -9,15 +9,9 @@ const CommentModel = require("../models/Comment.model.js")
 const uploader = require("../middlewares/uploader.js")
 
 // GET ("/profile") ->
-router.get("/", uploader.single("image"), async (req, res, next) => {
+router.get("/", async (req, res, next) => {
     const { _id } = req.session.user
-    try {
-        UserModel.findByIdAndUpdate(_id, {
-            image: req.file.path
-        })
-        res.redirect("/profile");
-        
-
+    try {   
         let adminRole;
         const wineUser = await UserModel.findById(_id)
         console.log(wineUser)
@@ -29,8 +23,6 @@ router.get("/", uploader.single("image"), async (req, res, next) => {
             wineUser,
             adminRole
         })
-
-        
     } catch(err){next(err)}
     
 })
