@@ -6,10 +6,21 @@
     <li>Tipo de Vino: {{ vinoDetalle.tipoVino}}</li>
     <li>Añada: {{ vinoDetalle.anada}}</li>
     <li>Año: {{ vinoDetalle.ano}}</li>
-    <li>DEnominación de Origen:{{ vinoDetalle.denOrigen}}</li>
+    <li>Denominación de Origen:{{ vinoDetalle.denOrigen}}</li>
     <li>Puntuación: {{ vinoDetalle.puntuacion}}, sobre 5</li>
     <li>Maridaje: {{ vinoDetalle.maridaje}}</li>
 
-    <img src="{{ vinoDetalle.vinoPicture}}" alt="img" width="200px">
+    <img src="{{svinoDetalle.vinoPicture}}" alt="img" width="200px">
+
+
+  
+   <a href="/wines/{{vinoActualizado._id}}/upload">Actualizar </a> 
+
+{{!-- 
+   <form action="/wines/{{vinoDetalle._id}}}/delete" method="POST">
+   <a href="/wines"> Borrar </a> 
+   </form> --}}
+   
+ 
    
 

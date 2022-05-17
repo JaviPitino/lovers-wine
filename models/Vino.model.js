@@ -1,5 +1,11 @@
 const {Schema, model} = require("mongoose");
 
+const tipoVino = require("../utils/tipoVino.js")
+const anada = require("../utils/anada.js")
+const denOrigen = require("../utils/denOrigen.js")
+const maridaje = require("../utils/maridaje.js")
+const score= require("../utils/puntuacion.js")
+
 const vinoSchema = new Schema({
     nombre:{
         type: String,
@@ -7,12 +13,12 @@ const vinoSchema = new Schema({
     },
     tipoVino: [{
         type: String,
-        enum: ["Tinto", "Blanco", "Rosado"],
+        enum: tipoVino,
         // required: true
     }],
     anada: [{
         type: String,
-        enum: ["Joven", "Crianza", "Reserva", "Gran Reserva"],
+        enum: anada
         // required: true
     }],
     ano: {
@@ -22,17 +28,17 @@ const vinoSchema = new Schema({
 
     denOrigen: [{
         type: String,
-        enum: ["Calatayud", "Cava", "Machuela", "Ribera del Duero", "Navarra", "Rioja", "Rueda", "Terra Alta", "Uclés", "Utiel", "Rías Baixas"],
+        enum: denOrigen
         // required: true
     }],
 
     puntuacion: [{
-        type: Number,
-        enum: [0, 1, 2, 3, 4, 5]
+        type: String,
+        enum: score
     }],
     maridaje: [{
         type: String,
-        enum: ["Ensaladas", "Fiambres y Patés", "Carnes", "Pescados y Mariscos", "Pasta y Arroz", "Postres", "Quesos", "Chocolate"]
+        enum: maridaje
         // required: true
     }],
     adminVinos: {
