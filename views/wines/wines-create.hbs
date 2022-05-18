@@ -1,65 +1,64 @@
 <h2>wines-create</h2>
 
+  <form action="/wines/create" method="POST" > {{!-- enctype="multipart/form-data" --}}
 
-<form action="/wines/create" method="POST" > {{!-- enctype="multipart/form-data" --}}
+    <label for="nombre">Nombre: </label>
+    <input type="text" name="nombre"> 
 
-  <label for="nombre">Nombre: </label>
-  <input type="text" name="nombre"> 
+  <br>
 
-<br>
+    <label for="tipoVino">Tipo Vino: </label>
+    <select name="tipoVino" value=>
+      {{#each tipoVino}}
+        <option value="{{ this }}">{{ this }}</option>
+      {{/each}}
+    </select>
 
-  <label for="tipoVino">Tipo Vino: </label>
-  <select name="tipoVino" value=>
-    {{#each  tipoVino}}
-      <option value="{{ this }}">{{ this }}</option>
+    <br>
+
+    <label for="anada">Añada: </label>
+    <select name="anada">
+      {{#each anada}}
+        <option value="{{ this }}">{{ this }}</option>
+      {{/each}}
+    </select>
+
+    <br>
+
+    <label for="ano">Año: </label>
+    <input type="text" name="ano">
+
+    <br>
+
+    <label for="denOrigen">Denominación de Origen:
+    </label>
+    <select name="denOrigen">
+    {{#each denOrigen}}
+    <option value="{{ this }}">{{ this }}</option>
     {{/each}}
-  </select>
-
-  <br>
-
-  <label for="anada">Añada: </label>
-  <select name="anada">
-    {{#each anada}}
-      <option value="{{ this }}">{{ this }}</option>
+    </select>
+    <br>
+    <label for="puntuacion">Puntuación:
+    </label>
+    <select name="puntuacion">
+    {{#each puntuacion}}
+    <option value="{{ this }}">{{ this }}</option>
     {{/each}}
-  </select>
+    </select>
+    <br>
+    <label for="maridaje">Maridaje:
+    </label>
+    <select name="maridaje" multiple="true">
+    {{#each maridaje}}
+    <option value="{{ this }}">{{ this }}</option>
+    {{/each}}
+    </select>
 
-  <br>
-
-  <label for="ano">Año: </label>
-  <input type="text" name="ano">
-
-  <br>
-
-  <label for="denOrigen">Denominación de Origen:
-  </label>
-  <select name="denOrigen">
-  {{#each denOrigen}}
-  <option value="{{ this }}">{{ this }}</option>
-  {{/each}}
-  </select>
-  <br>
-  <label for="puntuacion">Puntuación:
-  </label>
-  <select name="puntuacion">
-  {{#each score}}
-  <option value="{{ this }}">{{ this }}</option>
-  {{/each}}
-  </select>
-  <br>
-  <label for="maridaje">Maridaje:
-  </label>
-  <select name="maridaje" multiple="true">
-  {{#each maridaje}}
-  <option value="{{ this }}">{{ this }}</option>
-  {{/each}}
-  </select>
-
-  {{!-- <label for="image"> Imagen: </label>
-  <input type="file" name="image"> --}}
+    {{!-- <label for="image"> Imagen: </label>
+    <input type="file" name="image"> --}}
 
 
-  <button>
-  <a href="/wines/{{ createVino._id }}/details"></a>  Añadir Vino </button>
+    <button>
+    <a href="/wines/{{createVino._id}}/details">  Añadir Vino </a></button>
 
-</form>
+  </form>

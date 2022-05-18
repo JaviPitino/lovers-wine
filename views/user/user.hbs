@@ -19,10 +19,13 @@ TENER EN CUENTA QUE ESTO SOLO LO HACE EL USUARIO NO ADMIN ( METER EN ESA OPCIÓN
 
 
 {{#if adminRole}}
-    <button> Lista de vinos creados </button>
+    <button> <a href="/wines/list"> Lista de vinos creados </a> </button>
 
     <a href="/wines/create"> Crear vinos </a>
     {{else}}
+      {{#each wishList}}
+        <li>{{this.nombre}}</li>
+      {{/each}}
     <p> Debería de aparecer la wish list favorita del usuario </p>
 {{/if}}
 

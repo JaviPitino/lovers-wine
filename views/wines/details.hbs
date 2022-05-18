@@ -1,10 +1,10 @@
 <h1>wines details</h1>
 
-      {{ vinoDetalle.vinoPicture}}
+      {{vinoDetalle.vinoPicture}}
 
-    <li>Nombre: {{ vinoDetalle.nombre}}</li>
-    <li>Tipo de Vino: {{ vinoDetalle.tipoVino}}</li>
-    <li>Añada: {{ vinoDetalle.anada}}</li>
+    <li>Nombre: {{vinoDetalle.nombre}}</li>
+    <li>Tipo de Vino: {{vinoDetalle.tipoVino}}</li>
+    <li>Añada: {{vinoDetalle.anada}}</li>
     <li>Año: {{ vinoDetalle.ano}}</li>
     <li>Denominación de Origen:{{ vinoDetalle.denOrigen}}</li>
     <li>Puntuación: {{ vinoDetalle.puntuacion}}, sobre 5</li>
@@ -12,13 +12,20 @@
 
     <img src="{{vinoDetalle.vinoPicture}}" alt="img" width="200px">
 
+<form action="/profile/wish-list" method="post">
 
-  
+    <button> Like </button> {{!-- Solo para USERS --}}
+
+</form>
+
+  {{!-- Solo para ADMINS --}}
+
    <a href="/wines/{{vinoDetalle._id}}/upload"><button> Actualizar </button>  </a> 
 
-
    <form action="/wines/{{vinoDetalle._id}}/delete" method="POST">
+
    <button> Borrar</button>
+
    </form> 
    
  

@@ -1,3 +1,3 @@
-const score = ["0", "1", "2", "3", "4"," 5"]
+const puntuacion = ["0", "1", "2", "3", "4"," 5"]
 
-module.exports = score
+module.exports = puntuacion

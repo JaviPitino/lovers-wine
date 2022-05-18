@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,900&display=swap');
 
 body {
-  padding: 50px;
+  margin: 0;
+  padding: 0px;
   font: 14px;
   font-family: 'Lato', sans-serif;
-}
-
-a {
-  color: #00b7ff;
 }
 
 h1 {
@@ -18,11 +15,117 @@ h1 {
   color: darkred;
 }
 
-div {
-  width: 95%;
-  background-color: #7c1f24;
-  margin: 20px 50px;
-  padding: 50px;
-  font: 100px;
+#nav-bar {
+  display: flex;
+  width: 100%;
 
+}
+
+#logo {
+  padding-right: 30px;
+  text-decoration: none;
+  color: #7c1f24;
+}
+
+#logo a {
+  padding-right: 30px;
+  text-decoration: none;
+  color: #7c1f24;
+}
+
+.btn-auth {
+  display: flex;
+  color: #7c1f24;
+  justify-content: flex-end;
+}
+
+.btn-auth a {
+  justify-content: center;
+  padding: 0px 10px;
+  text-decoration: none;
+  color: #7c1f24;
+}
+
+#container {
+  margin: 0px;
+  display: flex;
+  padding: 0px 20px;
+  justify-content: flex-start;
+}
+#container-2 {
+  margin: 20px;
+  display: flex;
+  padding: 0px 10px;
+}
+
+#container-2 a {
+  text-decoration: none;
+  padding: 0px 20px;
+  color: #7c1f24;
+}
+
+#container-2 a:hover {
+  font-weight: 700;
+}
+
+#logo {
+  display: inline-block;
+  padding: 14px 20px;
+  
+}
+
+hr {
+  height: 2px;
+  width: 100%;
+  background-color: #7c1f24;
+}
+
+footer {
+  text-align: center;
+  padding-top: 5px;
+  background-color: #7c1f24;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  color: white;
+}
+
+.negrita  {
+  font-weight: 700;
+}
+
+#form-create{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#wine-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#index-bg {
+  padding-top: 250px;
+  text-align: center;
+  background-color: #edd5d6;
+  height: 650px;
+}
+
+#index-bg h3{
+  font-size: 1.9em;
+  font-weight: 700;
+  font-style: italic;
+  padding-bottom: 20px;
+
+}
+
+.btn-index {
+  border-style: none;
+  padding: 5px 10px;
+  background-color: #7c1f24;
+  color: white;
+  border-radius: 5px;
 }

@@ -28,7 +28,11 @@ const userSchema = new Schema({
     },  
     image: {
       type: String
-  } 
+    },
+    wishList: {
+      type: Schema.Types.ObjectId,
+      ref: "Vino"
+    } 
   },
   {
     timestamps: true,
