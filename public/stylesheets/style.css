@@ -78,9 +78,9 @@ h1 {
 }
 
 hr {
-  border: #7c1f24 2px solid;
+  height: 2px;
   width: 100%;
-  background: #7c1f24;
+  background-color: #7c1f24;
 }
 
 footer {
@@ -107,6 +107,7 @@ footer {
 }
 
 #index-bg {
+  position:static;
   padding-top: 250px;
   text-align: center;
   background-color: #edd5d6;
