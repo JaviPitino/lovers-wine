@@ -64,11 +64,8 @@ h1 {
   color: #7c1f24;
 }
 
-.container-3 {
-  margin: 20px;
-  display: flex;
-  justify-content: flex-end;
-  padding: 0px 10px;
+#container-2 a:hover {
+  font-weight: 700;
 }
 
 #logo {
@@ -92,6 +89,10 @@ footer {
   width: 100%;
   height: 40px;
   color: white;
+}
+
+.negrita  {
+  font-weight: 700;
 }
 
 #form-create{
