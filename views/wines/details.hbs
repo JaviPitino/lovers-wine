@@ -1,7 +1,5 @@
 <h1>wines details</h1>
 
-      {{vinoDetalle.vinoPicture}}
-
     <li>Nombre: {{vinoDetalle.nombre}}</li>
     <li>Tipo de Vino: {{vinoDetalle.tipoVino}}</li>
     <li>Añada: {{vinoDetalle.anada}}</li>
@@ -12,7 +10,7 @@
 
     <img src="{{vinoDetalle.vinoPicture}}" alt="img" width="200px">
 
-<form action="/profile/wish-list" method="post">
+<form action="/profile/wish-list/{{vinoDetalle._id}}" method="post">
 
     <button> Like </button> {{!-- Solo para USERS --}}
 

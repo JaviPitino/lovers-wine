@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const cloudinary = require("../middlewares/cloudinary.js")
 
 const tipoVino = require("../utils/tipoVino.js")
 const anada = require("../utils/anada.js")
@@ -69,8 +70,7 @@ router.get("/rosado", async (req, res, next) => {
 })
 
 
-//? CREAR VINOS
-
+// ? CREAR VINOS
 // GET (/wines/create) -> Crear más vinos
 //! Crear un enlace para admin en el profile de admin
 router.get("/create",  (req, res, next) => {
@@ -85,13 +85,14 @@ router.get("/create",  (req, res, next) => {
 })
 
 
-//POST -> Crear vinos desde un formulario en la BD
-router.post("/create", async (req, res, next) => {
+//POST -> Crear vinos desde un formulario en la DB
+router.post("/create", cloudinary.single("image"), async (req, res, next) => {
 
   const { _id } = req.session.user
   const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje, adminVinos, vinoPicture } = req.body
 
   try {
+
     const createVino = await VinoModel.create({
       nombre,
       tipoVino,
@@ -101,7 +102,7 @@ router.post("/create", async (req, res, next) => {
       puntuacion,
       maridaje,
       adminVinos: _id,
-      vinoPicture
+      vinoPicture: req.file.path
     })
     
     // console.log(createVino)
@@ -159,11 +160,17 @@ router.get("/:id/upload", async (req, res, next) => {
 
 })
 
-router.post("/:id/upload", async (req, res, next) => {
+router.post("/:id/upload", cloudinary.single("vinoPicture"), async (req, res, next) => {
   const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje, vinoPicture } = req.body
   const {id} = req.params
+  const { _id } = req.session.user
   console.log(req.body)
   try{
+
+    await VinoModel.findByIdAndUpdate(_id, {
+      vinoPicture: req.file.path
+    })
+
    await VinoModel.findByIdAndUpdate(id, {
     nombre,
     tipoVino,

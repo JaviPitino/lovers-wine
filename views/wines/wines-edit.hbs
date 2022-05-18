@@ -68,9 +68,15 @@
 
   <br>
 
-  <label for="image"> Imagen: </label>
-  <input type="file" name="image">
+  <form action="/wines/{{vinoActua._id}}/upload" method="POST" enctype="multipart/form-data">
+
+    <label for="image"> Imagen: </label>
+    <input type="file" name="image">
+
+    <button type="submit"> Actualiza la foto de tu vino </button>
+  </form>
 
 <button>Actualizar Vino</button>
 
 </form>
+

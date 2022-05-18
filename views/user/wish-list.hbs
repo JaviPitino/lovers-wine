@@ -1,0 +1,9 @@
+<div>
+    <h2>Lista de Vinos favoritos</h2>
+    {{#each listVino}}
+    <li>
+        {{!-- <a href="/profile/wish-list">{{this.nombre}}</a> --}}
+        <a href="/wines/{{this._id}}/details">{{this.nombre}}</a>
+    </li>
+    {{/each}}
+</div>
