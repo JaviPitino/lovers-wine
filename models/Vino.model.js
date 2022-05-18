@@ -41,13 +41,14 @@ const vinoSchema = new Schema({
         enum: maridaje
         // required: true
     }],
+    vinoPicture: {
+        type: String
+    },
     adminVinos: {
         type: Schema.Types.ObjectId,
         ref: "User"
-    },
-    vinoPicture: {
-        type: String
     }
+   
 });
 
 const VinoModel = model("Vino", vinoSchema);

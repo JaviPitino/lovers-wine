@@ -151,7 +151,7 @@ router.get("/:id/details", async (req, res, next) => {
 
 //? ACTUALIZAR VINOS
 //GET "/wines/:id/upload" => Actualizar detalles del vino
-router.get("/:id/upload", isAdmin, async (req, res, next) => {
+router.get("/:id/upload", async (req, res, next) => {
   const { id } = req.params
   try{
     const vinoActua = await VinoModel.findById(id)
@@ -168,17 +168,11 @@ router.get("/:id/upload", isAdmin, async (req, res, next) => {
 
 })
 
-router.post("/:id/upload", isAdmin, cloudinary.single("image"), async (req, res, next) => {
-  const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje } = req.body
+router.post("/:id/upload", async (req, res, next) => {
+  const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje, vinoPicture } = req.body
   const {id} = req.params
-  // const { _id } = req.session.user
-  // console.log(req.body)
+  console.log(req.body)
   try{
-
-    // await VinoModel.findByIdAndUpdate(_id, {
-    //   vinoPicture: req.file.path
-    // })
-
    await VinoModel.findByIdAndUpdate(id, {
     nombre,
     tipoVino,
@@ -187,7 +181,7 @@ router.post("/:id/upload", isAdmin, cloudinary.single("image"), async (req, res,
     denOrigen,
     puntuacion,
     maridaje,
-    vinoPicture: req.file.path
+    vinoPicture
   })
  
   res.redirect(`/wines/${id}/details`)
