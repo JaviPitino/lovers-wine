@@ -1,6 +1,6 @@
 <h2>wines-create</h2>
 
-  <form action="/wines/create" method="POST" > {{!-- enctype="multipart/form-data" --}}
+  <form action="/wines/create" method="POST" enctype="multipart/form-data"> {{!-- enctype="multipart/form-data" --}}
 
     <label for="nombre">Nombre: </label>
     <input type="text" name="nombre"> 
@@ -54,16 +54,10 @@
     {{/each}}
     </select>
 
-  <form action="/wines/create" method="POST" enctype="multipart/form-data">
-
     <label for="image"> Imagen: </label>
     <input type="file" name="image">
 
-    <button type="submit"> Añade la foto de tu vino </button>
-  </form>
+    {{!-- <img src="{{vinoPicture}}" alt="fotoVino"> --}}
 
-
-    <button>
-    <a href="/wines/{{createVino._id}}/details">  Añadir Vino </a></button>
-
-  </form>
+    <button> Añadir Vino </button>
+</form>

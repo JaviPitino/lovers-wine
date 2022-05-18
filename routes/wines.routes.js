@@ -16,6 +16,7 @@ const CommentModel = require("../models/Comment.model.js")
 const vinosCreados = require("../seeds/vinos.json")
 
 const { isAdmin } = require("../middlewares/auth.middlewares.js")
+// const { isUser } = require("../middlewares/auth.middlewares.js")
 
 
 // GET ("/wines") -> Mostrar vista con las categorias de vinos
@@ -73,7 +74,7 @@ router.get("/rosado", async (req, res, next) => {
 // ? CREAR VINOS
 // GET (/wines/create) -> Crear más vinos
 //! Crear un enlace para admin en el profile de admin
-router.get("/create",  (req, res, next) => {
+router.get("/create", isAdmin, (req, res, next) => {
 
   res.render("wines/wines-create.hbs", {
               tipoVino, 
@@ -84,9 +85,8 @@ router.get("/create",  (req, res, next) => {
   })
 })
 
-
 //POST -> Crear vinos desde un formulario en la DB
-router.post("/create", cloudinary.single("image"), async (req, res, next) => {
+router.post("/create", isAdmin, cloudinary.single("image"), async (req, res, next) => {
 
   const { _id } = req.session.user
   const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje, adminVinos, vinoPicture } = req.body
@@ -113,7 +113,7 @@ router.post("/create", cloudinary.single("image"), async (req, res, next) => {
 })
 
 // GET "/wines/list" -> Buscamos vinos creados por el usuario
-router.get("/list", async (req, res, next) => {
+router.get("/list", isAdmin, async (req, res, next) => {
   const { _id } = req.session.user
   try {
     const vinoCreadoUsuario = await VinoModel.find({adminVinos: _id})
@@ -130,20 +130,24 @@ router.get("/list", async (req, res, next) => {
 // GET ("/wines/:id/details") -> Mostrar vista 
 router.get("/:id/details", async (req, res, next) => {
   const { id } = req.params
+  // const { _id } = req.session.user
   try {
-  //   if (wineUser.role === "admin") {
-  //       adminRole = true
-  // }
+    // let userRole;
+    // const wineUser = await UserModel.findById(_id)
+    // if ( wineUser.role === "user") {
+    //   userRole = true
+    // }
     const vinoDetalle = await VinoModel.findById(id)
     res.render("wines/details.hbs", {
       vinoDetalle
+      // userRole
     })
   } catch (err) {next(err)}
 })
 
 //? ACTUALIZAR VINOS
 //GET "/wines/:id/upload" => Actualizar detalles del vino
-router.get("/:id/upload", async (req, res, next) => {
+router.get("/:id/upload", isAdmin, async (req, res, next) => {
   const { id } = req.params
   try{
     const vinoActua = await VinoModel.findById(id)
@@ -160,16 +164,16 @@ router.get("/:id/upload", async (req, res, next) => {
 
 })
 
-router.post("/:id/upload", cloudinary.single("vinoPicture"), async (req, res, next) => {
-  const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje, vinoPicture } = req.body
+router.post("/:id/upload", isAdmin, cloudinary.single("image"), async (req, res, next) => {
+  const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje } = req.body
   const {id} = req.params
-  const { _id } = req.session.user
-  console.log(req.body)
+  // const { _id } = req.session.user
+  // console.log(req.body)
   try{
 
-    await VinoModel.findByIdAndUpdate(_id, {
-      vinoPicture: req.file.path
-    })
+    // await VinoModel.findByIdAndUpdate(_id, {
+    //   vinoPicture: req.file.path
+    // })
 
    await VinoModel.findByIdAndUpdate(id, {
     nombre,
@@ -179,7 +183,7 @@ router.post("/:id/upload", cloudinary.single("vinoPicture"), async (req, res, ne
     denOrigen,
     puntuacion,
     maridaje,
-    vinoPicture
+    vinoPicture: req.file.path
   })
  
   res.redirect(`/wines/${id}/details`)
@@ -188,7 +192,7 @@ router.post("/:id/upload", cloudinary.single("vinoPicture"), async (req, res, ne
 })
 
 //? BORRAR VINOS
-router.post("/:id/delete", async (req, res, next) => {
+router.post("/:id/delete", isAdmin, async (req, res, next) => {
 
   const {id} = req.params
 

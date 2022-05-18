@@ -13,26 +13,24 @@
       <nav id="nav-bar">
          <div id="container">
             <div id="logo">
-               <img src="https://www.vinetur.com/imagenes/2017/mayo/23/copa_de_vino.jpg" alt="imagenlogo" width="50px">
+               <img src="https://res.cloudinary.com/dvhrxe7ju/image/upload/v1652884302/lovers-wine/logo_a5mqtj.png" alt="imagenlogo" width="150px">
             </div>
-            <div id="container-2">
+            <div id="home">
                <a href="/">Home</a>
-            
-         
-               {{!-- <li><a href="/wines/wines">Vinos</a></li>
-               <li><a href="/admin/admin">Perfil</a></li> --}}
-               {{#if userIsActive}}
-                  {{!-- <li><a href="/user">Perfil</a></li> --}}
-                  <a href="/wines">Vinos</a>
-                  <a href="/profile">Ver Perfil</a>
             </div>
          </div>
+         <div id="btn-vinos">
+               {{#if userIsActive}}
+                  <a href="/wines">Vinos</a>
+                  <a href="/profile">Ver Perfil</a>
+                <div id="logout">  
                   <form action="/auth/logout" method="post">
                      <button>Cerrar sesión</button>
                   </form>
+               </div>
                {{else}}
                   <div class="btn-auth">
-                     <a href="/auth/signup">SingUp</a>
+                     <a href="/auth/signup">SignUp</a>
                      <a href="/auth/login">Login</a>
                   </div>
                {{/if}}
@@ -42,7 +40,7 @@
                         </form>
                    {{/if}} --}}
               
-         
+         </div>
      </nav>
      {{!-- <hr> --}}
 

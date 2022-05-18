@@ -10,21 +10,30 @@
 
     <img src="{{vinoDetalle.vinoPicture}}" alt="img" width="200px">
 
-<form action="/profile/wish-list/{{vinoDetalle._id}}" method="post">
-
-    <button> Like </button> {{!-- Solo para USERS --}}
-
-</form>
+    {{!-- {{#if isUser}} --}}
+      <form action="/profile/wish-list/{{vinoDetalle._id}}" method="post">
+        <button> Like </button>
+        <label>Comentario</label><br />
+        <textarea name="comment" rows="" cols="">Teeeeeeeeeeeeeeeeeeeeeeeeeeeeexto</textarea>
+      </form>
+    {{!-- {{/if}} --}}
 
   {{!-- Solo para ADMINS --}}
+  {{#if isAdmin}}
 
-   <a href="/wines/{{vinoDetalle._id}}/upload"><button> Actualizar </button>  </a> 
+    <form action="/wines/{{vinoDetalle._id}}/upload" method="post">
+      <button> Actualizar </button></a> 
+    </form>
+   
+    <form action="/wines/{{vinoDetalle._id}}/delete" method="POST">
+      <button>Borrar</button>
+    </form> 
 
-   <form action="/wines/{{vinoDetalle._id}}/delete" method="POST">
+  {{/if}}
 
-   <button> Borrar</button>
 
-   </form> 
+
+  
    
  
    

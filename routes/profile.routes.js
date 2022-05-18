@@ -3,6 +3,8 @@ const router = require("express").Router();
 const bcryptjs = require("bcryptjs")
 const cloudinary = require("../middlewares/cloudinary.js")
 
+const { isUser } = require("../middlewares/auth.middlewares.js")
+
 const UserModel = require("../models/User.model.js");
 const VinoModel = require("../models/Vino.model.js");
 const CommentModel = require("../models/Comment.model.js")
@@ -13,21 +15,16 @@ router.get("/", async (req, res, next) => {
     try {
         let adminRole;
         const wineUser = await UserModel.findById(_id)
-        console.log(wineUser)
+        // console.log(wineUser)
         if (wineUser.role === "admin") {
             adminRole = true
         }
-        // const likeWine = await UserModel.find({ wishList: _id }).select("nombre")
-        // console.log(likeWine)
-
         res.render("user/user.hbs", {
             wineUser,
             adminRole
-            // likeWine: _id
         })
     } catch(err){next(err)}
 })
-
 
 router.post("/", cloudinary.single("image"), async (req, res, next) => {
     const { _id } = req.session.user
@@ -43,10 +40,11 @@ router.post("/", cloudinary.single("image"), async (req, res, next) => {
 // GET ("/profile/wish-list") -> Nos va a renderizar la lista de vinos favoritos
 router.get("/wish-list", async (req, res, next) => {
     const { _id } = req.session.user
+    
     try {
-        const listVino = await UserModel.findById(_id).populate("wishList")
+        const userObject = await UserModel.findById(_id).populate("wishList")
         res.render("user/wish-list.hbs", {
-            listVino
+            listVino: userObject.wishList
         })
 
     } catch(err){next(err)}
@@ -65,33 +63,5 @@ router.post("/wish-list/:favId", async (req, res, next) => {
 
     } catch(err){next(err)}
 })
-
-
-//! CLOUDINARY
-
-
-
-
-// router.get("/", cloudinary.single("image"), async (req, res, next) => {
-//     const { _id } = req.session.user
-//     try {
-//         
-//         let adminRole;
-//         const wineUser = await UserModel.findById(_id)
-//         console.log(wineUser)
-//         if (wineUser.role === "admin") {
-//             adminRole = true
-
-//         }
-//         res.render("user/user.hbs", {
-//             wineUser,
-//             adminRole,
-//             fotoPerfil
-//         })
-
-
-
-        
-// //     } catch(err){next(err)}
 
 module.exports = router;
