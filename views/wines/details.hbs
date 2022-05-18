@@ -10,16 +10,16 @@
 
     <img src="{{vinoDetalle.vinoPicture}}" alt="img" width="200px">
 
-    {{!-- {{#if isUser}} --}}
+    {{#if userRole}}
       <form action="/profile/wish-list/{{vinoDetalle._id}}" method="post">
         <button> Like </button>
         <label>Comentario</label><br />
         <textarea name="comment" rows="" cols="">Teeeeeeeeeeeeeeeeeeeeeeeeeeeeexto</textarea>
       </form>
-    {{!-- {{/if}} --}}
+    {{/if}}
 
   {{!-- Solo para ADMINS --}}
-  {{#if isAdmin}}
+  {{#if adminRole}}
 
     <form action="/wines/{{vinoDetalle._id}}/upload" method="post">
       <button> Actualizar </button></a> 

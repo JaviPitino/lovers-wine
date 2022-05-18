@@ -3,6 +3,7 @@ const router = require("express").Router();
 const bcryptjs = require("bcryptjs")
 const cloudinary = require("../middlewares/cloudinary.js")
 
+const { isAdmin } = require("../middlewares/auth.middlewares.js")
 const { isUser } = require("../middlewares/auth.middlewares.js")
 
 const UserModel = require("../models/User.model.js");

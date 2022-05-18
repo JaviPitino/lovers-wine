@@ -16,7 +16,7 @@ const CommentModel = require("../models/Comment.model.js")
 const vinosCreados = require("../seeds/vinos.json")
 
 const { isAdmin } = require("../middlewares/auth.middlewares.js")
-// const { isUser } = require("../middlewares/auth.middlewares.js")
+const { isUser } = require("../middlewares/auth.middlewares.js")
 
 
 // GET ("/wines") -> Mostrar vista con las categorias de vinos
@@ -130,17 +130,21 @@ router.get("/list", isAdmin, async (req, res, next) => {
 // GET ("/wines/:id/details") -> Mostrar vista 
 router.get("/:id/details", async (req, res, next) => {
   const { id } = req.params
-  // const { _id } = req.session.user
+  const { _id } = req.session.user
   try {
-    // let userRole;
-    // const wineUser = await UserModel.findById(_id)
-    // if ( wineUser.role === "user") {
-    //   userRole = true
-    // }
+    let userRole;
+    let adminRole;
+    const wineUser = await UserModel.findById(_id)
+    if ( wineUser.role === "user") {
+      userRole = true
+    } else if ( wineUser.role === "admin" ){
+            adminRole = true
+    }
     const vinoDetalle = await VinoModel.findById(id)
     res.render("wines/details.hbs", {
-      vinoDetalle
-      // userRole
+      vinoDetalle,
+      userRole,
+      adminRole
     })
   } catch (err) {next(err)}
 })
