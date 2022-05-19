@@ -15,10 +15,13 @@ router.get("/", async (req, res, next) => {
     const { _id } = req.session.user
     try {
         let adminRole;
+        let userRole;
         const wineUser = await UserModel.findById(_id)
         // console.log(wineUser)
         if (wineUser.role === "admin") {
             adminRole = true
+        } else {
+            userRole = true
         }
         res.render("user/user.hbs", {
             wineUser,

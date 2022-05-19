@@ -14,6 +14,14 @@
   <li>{{wineUser.username}}</li> 
 
 
+{{#if userRole}}
+
+<button> <a href="/profile/wish-list"> Lista de vinos favoritos </a> </button>
+
+{{/if}}
+
+
+
 {{#if adminRole}}
     <button> <a href="/wines/list"> Lista de vinos creados </a> </button>
 

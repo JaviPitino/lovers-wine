@@ -8,10 +8,10 @@
     <li>Puntuación: {{ vinoDetalle.puntuacion}}, sobre 5</li>
     <li>Maridaje: {{ vinoDetalle.maridaje}}</li>
 
-    <img src="{{vinoDetalle.vinoPicture}}" alt="image" width="200px">
+   <img src="{{vinoDetalle.vinoPicture}}" alt="image" width="200px">
 
     {{#if userRole}}
-      <form action="/profile/wish-list/{{vinoDetalle._id}}" method="post">
+      <form action="/profile/wish-list/{{vinoDetalle._id}}" method="POST">
         <button> Like </button>
         <label>Comentario</label><br />
         <textarea name="comment" rows="" cols="">Teeeeeeeeeeeeeeeeeeeeeeeeeeeeexto</textarea>
@@ -21,8 +21,8 @@
   {{!-- Solo para ADMINS --}}
   {{#if adminRole}}
 
-    <form action="/wines/{{vinoDetalle._id}}/upload" method="post">
-      <button> Actualizar </button></a> 
+    <form action="/wines/{{vinoDetalle._id}}/upload" method="GET">
+      <button> Actualizar </button>
     </form>
    
     <form action="/wines/{{vinoDetalle._id}}/delete" method="POST">

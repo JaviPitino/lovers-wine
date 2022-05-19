@@ -24,6 +24,16 @@ const projectName = "Wines Routes";
 
 app.locals.appTitle = `${capitalized(projectName)} created by MariJá`;
 
+// MIDDLEWARE QUE ACTUALIZA LAS VARIABLES GLOBALES EN CADA REQUEST
+app.use((req, res, next) => {
+    if (req.session.user) {
+        res.locals.userIsActive = true
+    } else {
+        res.locals.userIsActive = false
+    }
+    next()
+})
+
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
 app.use("/", index);

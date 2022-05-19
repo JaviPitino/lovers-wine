@@ -103,10 +103,13 @@ router.post("/login", async (req, res, next) => {
             return;
         }
         req.session.user = foundUser;
-        req.app.locals.userIsActive = true;
+        //req.app.locals.userIsActive = true;
         // req.app.locals.isAdmin = true;
 
-        res.redirect("/profile")
+        req.session.save(() => {
+            res.redirect("/profile")
+        })
+        
 
     } catch(err){next(err)}
 
@@ -115,13 +118,15 @@ router.post("/login", async (req, res, next) => {
 //POST ("/auth/logout") => Cerrar sesión de usuario
 router.post("/logout", (req, res, next) => {
 
-    req.session.destroy();
-    req.app.locals.userIsActive = false;
+    req.session.destroy(() => {
+        res.redirect("/");
+    });
+    //req.app.locals.userIsActive = false;
     // req.app.locals.isAdmin = false;
 
 
 
-    res.redirect("/");
+    
 })
 
 module.exports = router;

@@ -1,7 +1,7 @@
 <h2>wines-edit</h2>
 
 
-<form action="/wines/{{vinoActua._id}}/upload" method="POST">
+<form action="/wines/{{vinoActua._id}}/upload" method="POST" enctype="multipart/form-data" >
 
   <label for="nombre">Nombre: </label>
   <input type="text" name="nombre" value="{{vinoActua.nombre}}"> 
@@ -71,6 +71,8 @@
   <label for="image"> Imagen: </label>
   <input type="file" name="image">
 
-<button>Actualizar Vino</button>
+   <img src="{{vinoActua.vinoPicture}}" alt="fotoVino"> 
+
+<button type="submit">Actualizar Vino</button>
 
 </form>

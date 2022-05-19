@@ -125,33 +125,9 @@ router.get("/list", isAdmin, async (req, res, next) => {
 
 })
 
-
-
-// GET ("/wines/:id/details") -> Mostrar vista 
-router.get("/:id/details", async (req, res, next) => {
-  const { id } = req.params
-  const { _id } = req.session.user
-  try {
-    let userRole;
-    let adminRole;
-    const wineUser = await UserModel.findById(_id)
-    if ( wineUser.role === "user") {
-      userRole = true
-    } else if ( wineUser.role === "admin" ){
-            adminRole = true
-    }
-    const vinoDetalle = await VinoModel.findById(id)
-    res.render("wines/details.hbs", {
-      vinoDetalle,
-      userRole,
-      adminRole
-    })
-  } catch (err) {next(err)}
-})
-
 //? ACTUALIZAR VINOS
 //GET "/wines/:id/upload" => Actualizar detalles del vino
-router.get("/:id/upload", async (req, res, next) => {
+router.get("/:id/upload", isAdmin, async (req, res, next) => {
   const { id } = req.params
   try{
     const vinoActua = await VinoModel.findById(id)
@@ -168,10 +144,18 @@ router.get("/:id/upload", async (req, res, next) => {
 
 })
 
-router.post("/:id/upload", async (req, res, next) => {
-  const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje, vinoPicture } = req.body
+router.post("/:id/upload", isAdmin, cloudinary.single("image"), async (req, res, next) => {
+  const { nombre, tipoVino, anada, ano, denOrigen, puntuacion, maridaje} = req.body
   const {id} = req.params
   console.log(req.body)
+
+  let imageToAdd;
+  if(req.file) {
+    imageToAdd = req.file.path
+  } else {
+    console.log("¨NO IMAGE TO ADD")
+  }
+
   try{
    await VinoModel.findByIdAndUpdate(id, {
     nombre,
@@ -181,13 +165,40 @@ router.post("/:id/upload", async (req, res, next) => {
     denOrigen,
     puntuacion,
     maridaje,
-    vinoPicture
+    vinoPicture: imageToAdd
   })
  
   res.redirect(`/wines/${id}/details`)
 
   }catch (err) {next(err)}
 })
+
+
+// GET ("/wines/:id/details") -> Mostrar vista 
+router.get("/:id/details", async (req, res, next) => {
+  const { id } = req.params
+  const { _id } = req.session.user
+  try {
+    let userRole;
+    let adminRole;
+    const wineUser = await UserModel.findById(_id)
+    if ( wineUser.role === "user") {
+      userRole = true
+    } else if ( wineUser.role === "admin" ){
+      adminRole = true
+    }
+    const vinoDetalle = await VinoModel.findById(id)
+    res.render("wines/details.hbs", {
+      vinoDetalle,
+      userRole,
+      adminRole
+    })
+
+    
+  } catch (err) {next(err)}
+})
+
+
 
 //? BORRAR VINOS
 router.post("/:id/delete", isAdmin, async (req, res, next) => {
