@@ -25,7 +25,8 @@ router.get("/", async (req, res, next) => {
         }
         res.render("user/user.hbs", {
             wineUser,
-            adminRole
+            adminRole,
+            userRole
         })
     } catch(err){next(err)}
 })

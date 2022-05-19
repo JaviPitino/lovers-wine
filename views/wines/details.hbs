@@ -1,7 +1,8 @@
 <h3 id="wines-h1">Rasgos de los vinos</h3>
+<br>
 <div id="cont-details">
   <div id="details-img">
-      <img src="{{vinoDetalle.vinoPicture}}" alt="image" width="100px">
+      <img src="{{vinoDetalle.vinoPicture}}" alt="image" width="100px"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
   </div>
   <div id="details-list">
       <ul id="list-groupid" class="list-group">
@@ -17,17 +18,18 @@
 </div>
     {{#if userRole}}
       <form id="btn-like" action="/profile/wish-list/{{vinoDetalle._id}}" method="POST">
-        <button id="btn-like2"> <i class="bi bi-heart"></i> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  <button id="btn-like2"> <i class="bi bi-heart"></i> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
     </svg> </button>
       </form>
       <form id="form-comment" action="/wines/{{vinoDetalle._id}}/details/comments" method="POST">
-        
-        <br />
+        <br>
         <textarea id="comentario" name="comment" placeholder="Deja aquí tu comentario" style="width:300px"></textarea>
         <button id="comentario-btn"> Añadir comentario </button>
+     
         {{#each commentVino}}
-         <li>Comentario de {{this.commentUser.username}}: {{this.comment}}</li>
+        <br>
+         <strong>{{this.commentUser.username}}: </strong> {{this.comment}}
         {{/each}}
       </form>
     {{/if}}
