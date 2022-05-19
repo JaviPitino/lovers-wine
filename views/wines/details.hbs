@@ -13,9 +13,13 @@
     {{#if userRole}}
       <form action="/profile/wish-list/{{vinoDetalle._id}}" method="POST">
         <button> Like </button>
-        <label>Comentario</label><br />
-        <textarea name="comment" rows="" cols="">Teeeeeeeeeeeeeeeeeeeeeeeeeeeeexto</textarea>
       </form>
+      <form action="/wines/{{vinoDetalle._id}}/details">
+        <label>Comenta que es lo que más te gusta de este vino</label><br />
+        <textarea name="comment" rows="" cols="" placeholder="Deja aquí tu comentario" width="300px"></textarea>
+        <button> Añadir comentario </button>
+      </form>
+     
     {{/if}}
 
   {{!-- Solo para ADMINS --}}

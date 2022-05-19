@@ -187,11 +187,13 @@ router.get("/:id/details", async (req, res, next) => {
     } else if ( wineUser.role === "admin" ){
       adminRole = true
     }
+    const commentVino = await CommentModel.findById(_id)
     const vinoDetalle = await VinoModel.findById(id)
     res.render("wines/details.hbs", {
       vinoDetalle,
       userRole,
-      adminRole
+      adminRole,
+      commentVino
     })
 
     
