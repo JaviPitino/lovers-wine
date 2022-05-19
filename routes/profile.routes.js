@@ -68,4 +68,14 @@ router.post("/wish-list/:favId", async (req, res, next) => {
     } catch(err){next(err)}
 })
 
+//? BORRAR DE LA LISTA DE FAVORITOS
+router.post("/wish-list/:id/delete", async (req, res, next) => {
+    const { id } = req.params
+    try {
+        await VinoModel.findByIdAndDelete(id)
+        res.redirect("/profile/wish-list")
+
+    } catch(err){next(err)}
+})
+
 module.exports = router;

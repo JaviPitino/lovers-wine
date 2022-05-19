@@ -5,5 +5,9 @@
         {{!-- <a href="/profile/wish-list">{{this.nombre}}</a> --}}
         <a href="/wines/{{this._id}}/details">{{this.nombre}}</a>
     </li>
+     <form action="/profile/wish-list/{{this.id}}/delete" method="POST">
+      <button>Borrar</button>
+    </form> 
     {{/each}}
+
 </div>
