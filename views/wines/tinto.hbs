@@ -1,21 +1,16 @@
-<h2>Vinios Tintos</h2>
+<h3 id="wines-h1">Vinos Tintos</h3>
 
 <div class="todovino">
-   <div class="soloicono">
-
-<a href="/wines"><i class="bi bi-arrow-counterclockwise"></i><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
-  <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
-  <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
-</svg></a>
-
+    <a href="/wines"><i class="bi bi-arrow-counterclockwise"></i><svg id="btn-volver" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+      <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+    </svg></a>
+</div>
 
 {{#each vinoTinto}}
-<div class="solonombre">
-    <a href="/wines/{{this.id}}/details"> <li>{{this.nombre}}</li> </a>
+<div id="cont-vinos">
+   <a href="/wines/{{this.id}}/details"> <li> <img src="{{this.vinoPicture}}" alt="tintovino" width="50px">{{this.nombre}}</li> <hr></a>
 </div>
-<div class="soloimagen">
-    <img src="{{this.vinoPicture}}" alt="tintovino" width="50px">
-    </div>
 {{/each}}
 
 </div>

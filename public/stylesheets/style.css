@@ -101,6 +101,36 @@ body {
   border-radius: 5px;
 }
 
+/*TINO */
+#cont-vinos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
+}
+
+#cont-vinos a {
+  text-decoration: none;
+  color: #7c1f24;
+  width: 300px;
+}
+
+#cont-vinos hr {
+  text-decoration: none;
+  color: black;
+  width: 300px;
+}
+
+#cont-vinos li {
+  list-style: none;
+}
+
+#btn-volver{
+  padding: 5px;
+  justify-content: center;
+  text-align: center;
+}
+
 #home a {
   text-decoration: none; 
   color: #7c1f24;
