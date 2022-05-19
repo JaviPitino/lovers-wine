@@ -55,8 +55,22 @@ body {
   padding: 0px 10px;
 }
 
+/* DETAILS.HBS*/
+#cont-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+#cont-details {
+  display: flex;
+
+}
+
+
+
 #home a {
-  text-decoration: none;
+  text-decoration: none; 
   color: #7c1f24;
 }
 

@@ -1,15 +1,20 @@
 <h1>wines details</h1>
-  <img src="{{vinoDetalle.vinoPicture}}" alt="image" width="100px">
-  <ul class="list-group">
-    <li class="list-group-item">Nombre: {{vinoDetalle.nombre}}</li>
-    <li class="list-group-item">Tipo de Vino: {{vinoDetalle.tipoVino}}</li>
-    <li class="list-group-item">Añada: {{vinoDetalle.anada}}</li>
-    <li class="list-group-item">Año: {{ vinoDetalle.ano}}</li>
-    <li class="list-group-item">Denominación de Origen:{{ vinoDetalle.denOrigen}}</li>
-    <li class="list-group-item">Puntuación: {{ vinoDetalle.puntuacion}}, sobre 5</li>
-    <li class="list-group-item">Maridaje: {{ vinoDetalle.maridaje}}</li>
-</ul>
-  
+<div id="cont-details">
+  <div id="details-img">
+      <img src="{{vinoDetalle.vinoPicture}}" alt="image" width="100px">
+  </div>
+  <div id="details-list">
+      <ul id="list-groupid" class="list-group">
+        <li class="list-group-item"><strong> Nombre: &nbsp; </strong> {{vinoDetalle.nombre}}</li>
+        <li class="list-group-item"><strong> Tipo de Vino: &nbsp; </strong>{{vinoDetalle.tipoVino}}</li>
+        <li class="list-group-item"><strong> Añada: &nbsp; </strong>{{vinoDetalle.anada}}</li>
+        <li class="list-group-item"><strong> Año: &nbsp; </strong>{{ vinoDetalle.ano}}</li>
+        <li class="list-group-item"><strong> Denominación de Origen: &nbsp; </strong> {{ vinoDetalle.denOrigen}}</li>
+        <li class="list-group-item"><strong> Puntuación: &nbsp; </strong> {{ vinoDetalle.puntuacion}}, sobre 5</li>
+        <li class="list-group-item"> <strong> Maridaje: &nbsp; </strong>{{ vinoDetalle.maridaje}}</li>
+    </ul>
+    </div>
+</div>
 
     {{#if userRole}}
       <form action="/profile/wish-list/{{vinoDetalle._id}}" method="POST">
