@@ -113,9 +113,14 @@ footer {
 }
 
 #wine-list {
+  padding: 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.wines {
+  flex-direction: column;
 }
 
 #index-bg {

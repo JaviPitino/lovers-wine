@@ -188,14 +188,17 @@ router.get("/:id/details", async (req, res, next) => {
     } else if ( wineUser.role === "admin" ){
       adminRole = true
     }
-    const commentVino = await CommentModel.find().select("comment")
+    const commentVino = await CommentModel.find().populate("vinoId")
+    const comentario = await CommentModel.find().select("comment")
+    const commentUserName = await CommentModel.find().populate("commentUser")
     const vinoDetalle = await VinoModel.findById(id)
     res.render("wines/details.hbs", {
       vinoDetalle,
       userRole,
       adminRole,
-      comentUser: commentVino._id,
-      comentario: commentVino.comment
+      commentUsers: commentUserName.username,
+      comentario
+      // commentVinoId: commentVino.id,
     })
     console.log(commentVino)
     
@@ -204,13 +207,15 @@ router.get("/:id/details", async (req, res, next) => {
 // POST ("/wines/:id/details") ->  
 router.post("/:id/details/comments", async (req, res, next)=> {
   const { id } = req.params
-  const { user_id } = req.session
-  const { comment, rating, commentUser, vinoId } = req.body
+  const { comment, rating, commentUser, vinoId } = req.body 
+  const { _id } = req.session.user
   try{
+    const nombreUser = await UserModel.findById(_id)
+
     const commentVino = await CommentModel.create({
       comment,
       rating,
-      commentUser: user_id,
+      commentUser: nombreUser,
       vinoId: id
     })
     
