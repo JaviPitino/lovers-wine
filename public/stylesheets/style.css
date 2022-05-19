@@ -60,13 +60,25 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-right: 20px;
 
 }
-#cont-details {
+
+#btn-like {
+  padding-top: 20px;
   display: flex;
-
+  justify-content: center;
+  align-items: center;
 }
 
+#btn-like2 {
+  text-decoration: none;
+    border-style: none;
+    padding: 5px 10px;
+    border: #7c1f24 2px solid;
+    color: white;
+    border-radius: 5px;
+}
 
 
 #home a {

@@ -1,4 +1,4 @@
-<h1>wines details</h1>
+<h3 id="wines-h1">Rasgos de los vinos</h3>
 <div id="cont-details">
   <div id="details-img">
       <img src="{{vinoDetalle.vinoPicture}}" alt="image" width="100px">
@@ -15,10 +15,9 @@
     </ul>
     </div>
 </div>
-
     {{#if userRole}}
-      <form action="/profile/wish-list/{{vinoDetalle._id}}" method="POST">
-        <button> Like </button>
+      <form id="btn-like" action="/profile/wish-list/{{vinoDetalle._id}}" method="POST">
+        <button id="btn-like2"> <i class="bi bi-heart-fill"> <img src="https://res.cloudinary.com/dvhrxe7ju/image/upload/v1652980959/lovers-wine/heart_a89vbd.svg" alt="corazon"></i> </button>
       </form>
       <form action="/wines/{{vinoDetalle._id}}/details/comments" method="POST">
         <p>Comenta que es lo que más te gusta de este vino</p>
