@@ -199,21 +199,23 @@ router.get("/:id/details", async (req, res, next) => {
     
   } catch (err) {next(err)}
 })
-
-router.post("/:id/details", async (req, res, next)=> {
-  const { _id } = req.session.user
+// POST ("/wines/:id/details") ->  
+router.post("/:id/details/comments", async (req, res, next)=> {
   const { id } = req.params
+  const { user_id } = req.session
+  const { comment, rating, commentUser, vinoId } = req.body
   try{
     const commentVino = await CommentModel.create({
-      $addToSet: {commentVino: _id},
-      commentVino
+      comment,
+      rating,
+      commentUser: user_id,
+      vinoId: id
     })
+    
     res.redirect(`/wines/${id}/details`)
-
+    console.log(commentVino)
   }catch(err){next(err)}
 })
-
-
 
 //? BORRAR VINOS
 router.post("/:id/delete", isAdmin, async (req, res, next) => {
