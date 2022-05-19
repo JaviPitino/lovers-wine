@@ -188,14 +188,16 @@ router.get("/:id/details", async (req, res, next) => {
     } else if ( wineUser.role === "admin" ){
       adminRole = true
     }
-    const commentVino = await CommentModel.findById(id)
+    const commentVino = await CommentModel.find().select("comment")
     const vinoDetalle = await VinoModel.findById(id)
     res.render("wines/details.hbs", {
       vinoDetalle,
       userRole,
       adminRole,
-      commentVino
+      comentUser: commentVino._id,
+      comentario: commentVino.comment
     })
+    console.log(commentVino)
     
   } catch (err) {next(err)}
 })
