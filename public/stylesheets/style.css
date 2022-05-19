@@ -109,6 +109,30 @@ body {
   padding-right: 20px;
 }
 
+#content-user {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#content-user img {
+  width: 350px;
+}
+/* #content-user a {
+  text-decoration: none;
+  color: white;
+  background-color: #7c1f24!important;
+} */
+
+.btn-list {
+    text-decoration: none;
+    border-style: none;
+    padding: 5px 10px;
+    background-color: #7c1f24;
+    color: white;
+    border-radius: 5px;
+}
+
 #cont-vinos a {
   text-decoration: none;
   color: #7c1f24;

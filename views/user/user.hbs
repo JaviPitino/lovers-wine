@@ -1,38 +1,29 @@
   <h1>{{wineUser.username}}</h1>
   
-
-{{!-- TENER EN CUENTA QUE ESTO SOLO LO HACE EL USUARIO NO ADMIN ( METER EN ESA OPCIÓN) --}}
-
-  <img src="{{wineUser.image}}" class="img-thumbnail" alt="Imagen perfil">
-<br>
-<br>
- 
- 
- {{#if userRole}}
-
-<button type="button" class="btn btn-primary btn-lg"><a href="/profile/wish-list"> Lista de vinos favoritos </a></button>
-
-{{/if}}
+<div id="content-user">
+    <img src="{{wineUser.image}}" class="img-thumbnail" alt="Imagen perfil">
+    <br>
+    <br>
+  
+    {{#if userRole}}
+      <a href="/profile/wish-list"> Lista de vinos favoritos </a>
+    {{/if}}
 
 
 
-{{#if adminRole}}
-<div class="d-grid gap-2 col-6 mx-auto"></div>
-    <button type="button" class="btn btn-primary btn-lg"> <a href="/wines/list"> Lista de vinos creados </a> </button>
+    {{#if adminRole}}
+      <a class="btn-list" href="/wines/list"> Lista de vinos creados </a>
+      <a class="btn-list" href="/wines/create"> Crear vinos </a>
+      {{!-- {{else}}
+        {{#each wishList}}
+          <li>{{this.nombre}}</li>
+        {{/each}} --}}  
+    {{/if}}
 
-    <button type="button" class="btn btn-primary btn-lg"><a href="/wines/create"> Crear vinos </a> </button>
-    {{!-- {{else}}
-      {{#each wishList}}
-        <li>{{this.nombre}}</li>
-      {{/each}} --}}
-      
-  </div>
-   
-{{/if}}
+  <form action="/profile" method="POST" enctype="multipart/form-data">
+    <input type="file" name="image">
 
- <form action="/profile" method="POST" enctype="multipart/form-data">
-  <input type="file" name="image">
-
-  <button type="submit"  type="button" class="btn btn-primary btn-sm"> Añade Foto de Perfil </button>
+    <button type="submit"  type="button" class="btn btn-primary btn-sm"> Añade Foto de Perfil </button>
 
   </form>
+</div>
