@@ -37,12 +37,12 @@
   {{!-- Solo para ADMINS --}}
   {{#if adminRole}}
 
-    <form action="/wines/{{vinoDetalle._id}}/upload" method="GET">
-      <button> Actualizar </button>
+    <form id="form-comment" action="/wines/{{vinoDetalle._id}}/upload" method="GET">
+      <button id="comentario-btn"> Actualizar </button>
     </form>
-   
-    <form action="/wines/{{vinoDetalle._id}}/delete" method="POST">
-      <button>Borrar</button>
+   <br>
+    <form id="form-comment" action="/wines/{{vinoDetalle._id}}/delete" method="POST">
+      <button id="comentario-btn">Borrar</button>
     </form> 
 
   {{/if}}
