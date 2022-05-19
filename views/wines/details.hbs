@@ -14,12 +14,12 @@
       <form action="/profile/wish-list/{{vinoDetalle._id}}" method="POST">
         <button> Like </button>
       </form>
-      <form action="/wines/{{vinoDetalle._id}}/details">
-        <label>Comenta que es lo que más te gusta de este vino</label><br />
-        <textarea name="comment" rows="" cols="" placeholder="Deja aquí tu comentario" width="300px"></textarea>
+      <form action="/wines/{{vinoDetalle._id}}/details" method="POST">
+        <p>Comenta que es lo que más te gusta de este vino</p>
+        <br />
+        <p><textarea name="comment" placeholder="Deja aquí tu comentario" width="300px"></textarea></p>
         <button> Añadir comentario </button>
       </form>
-     
     {{/if}}
 
   {{!-- Solo para ADMINS --}}

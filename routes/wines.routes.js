@@ -16,7 +16,8 @@ const CommentModel = require("../models/Comment.model.js")
 const vinosCreados = require("../seeds/vinos.json")
 
 const { isAdmin } = require("../middlewares/auth.middlewares.js")
-const { isUser } = require("../middlewares/auth.middlewares.js")
+const { isUser } = require("../middlewares/auth.middlewares.js");
+const async = require("hbs/lib/async");
 
 
 // GET ("/wines") -> Mostrar vista con las categorias de vinos
@@ -187,7 +188,7 @@ router.get("/:id/details", async (req, res, next) => {
     } else if ( wineUser.role === "admin" ){
       adminRole = true
     }
-    const commentVino = await CommentModel.findById(_id)
+    const commentVino = await CommentModel.findById(id)
     const vinoDetalle = await VinoModel.findById(id)
     res.render("wines/details.hbs", {
       vinoDetalle,
@@ -195,9 +196,21 @@ router.get("/:id/details", async (req, res, next) => {
       adminRole,
       commentVino
     })
-
     
   } catch (err) {next(err)}
+})
+
+router.post("/:id/details", async (req, res, next)=> {
+  const { _id } = req.session.user
+  const { id } = req.params
+  try{
+    const commentVino = await CommentModel.create({
+      $addToSet: {commentVino: _id},
+      commentVino
+    })
+    res.redirect(`/wines/${id}/details`)
+
+  }catch(err){next(err)}
 })
 
 
