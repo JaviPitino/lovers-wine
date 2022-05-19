@@ -188,19 +188,17 @@ router.get("/:id/details", async (req, res, next) => {
     } else if ( wineUser.role === "admin" ){
       adminRole = true
     }
-    const commentVino = await CommentModel.find().populate("vinoId")
-    const comentario = await CommentModel.find().select("comment")
-    const commentUserName = await CommentModel.find().populate("commentUser")
+    console.log("El vino que estoy viendo", id)
+    const commentVino = await CommentModel.find({vinoId: id}).populate("commentUser", "username") // ! El segundo parámetro funciona como un slect para buscar 
     const vinoDetalle = await VinoModel.findById(id)
+    console.log(commentVino)
     res.render("wines/details.hbs", {
       vinoDetalle,
       userRole,
       adminRole,
-      commentUsers: commentUserName.username,
-      comentario
-      // commentVinoId: commentVino.id,
+      commentVino
     })
-    console.log(commentVino)
+
     
   } catch (err) {next(err)}
 })

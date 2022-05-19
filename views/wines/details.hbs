@@ -19,7 +19,9 @@
         <br />
         <p><textarea name="comment" placeholder="Deja aquí tu comentario" style="width:300px"></textarea></p>
         <button> Añadir comentario </button>
-         <li>Comentario de {{vinoDetalle.commentUsers}}: {{comentario}}</li>
+        {{#each commentVino}}
+         <li>Comentario de {{this.commentUser.username}}: {{this.comment}}</li>
+        {{/each}}
       </form>
     {{/if}}
 

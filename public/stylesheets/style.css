@@ -114,13 +114,37 @@ footer {
 
 #wine-list {
   padding: 25px;
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: row;
   align-items: center;
+  width: 100%;
+}
+
+#wine-list a {
+    text-decoration: none;
+    border-style: none;
+    padding: 5px 10px;
+    background-color: #7c1f24;
+    color: white;
+    border-radius: 5px;
+}
+
+#wines-h1 {
+  text-align: center;
 }
 
 .wines {
+  display: flex;
   flex-direction: column;
+  width: 200px;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.wines img {
+  
+  padding-bottom: 30px;
 }
 
 #index-bg {
