@@ -79,6 +79,14 @@ body {
     border-radius: 5px;
 }
 
+/*LOGIN*/
+.form-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 #form-comment {
   display: flex;
   flex-direction: column;
@@ -158,7 +166,7 @@ input, label {
   align-items: center;
 }
 
-form.form-edit {
+.form-edit {
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -190,6 +198,19 @@ form.form-edit {
   color: white;
   border-radius: 5px;
 }
+
+.btn-list-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-style: none;
+  padding: 5px 10px;
+  background-color: #7c1f24;
+  color: white;
+  border-radius: 5px;
+}
+
 
 #cont-vinos a {
   text-decoration: none;
