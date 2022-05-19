@@ -80,6 +80,15 @@ body {
   width: 60%;
 }
 
+#btn-vinos a {
+  text-decoration: none;
+  color: #7c1f24;
+}
+
+#btn-vinos a:hover {
+  font-weight: 700;
+}
+
 hr {
   height: 2px;
   width: 100%;
