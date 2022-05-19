@@ -11,12 +11,9 @@
 
 
     {{#each vinoCreadoUsuario}}
-    <div id="cont-vinos">
-        <a href="/wines/{{this._id}}/details">{{this.nombre}}</a>
-    </div>
-    <div class="soloimagen">
-   <img src="{{this.vinoPicture}}" alt="" width="50px">
+   <div id="cont-vinos">
+   <a href="/wines/{{this._id}}/details"> <li> <img src="{{this.vinoPicture}}" alt="" width="50px"> {{this.nombre}} </li> <hr></a>
 </div>
     {{/each}}
-</div>
+
 

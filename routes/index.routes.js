@@ -5,6 +5,10 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
+router.get("/about", (req, res, next) => {
+  res.render("about")
+})
+
 const authRoutes = require("./auth.routes.js");
 router.use("/auth", authRoutes)
 

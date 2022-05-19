@@ -16,7 +16,7 @@
                <a href="/"><img src="https://res.cloudinary.com/dvhrxe7ju/image/upload/v1652884302/lovers-wine/logo_a5mqtj.png" alt="imagenlogo" width="150px"></a>
             </div>
             <div id="home">
-               <a href="/">Conócenos</a>
+               <a href="/about">Conócenos</a>
             </div>
          </div>
          <div id="btn-vinos">
@@ -25,13 +25,13 @@
                   <a href="/profile">Ver Perfil</a>
                 <div id="logout">  
                   <form action="/auth/logout" method="post">
-                     <button>Cerrar sesión</button>
+                     <button class="addvino">Cerrar sesión</button>
                   </form>
                </div>
                {{else}}
                   <div class="btn-auth">
                      <a href="/auth/signup">Registro</a>
-                     <a href="/auth/login">Login</a>
+                     <a href="/auth/login">Accede</a>
                   </div>
                {{/if}}
                      {{!-- {{#if isAdmin}}
