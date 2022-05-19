@@ -11,6 +11,7 @@ body {
   color: darkred;
 }
 
+/* BARRA DE NAVEGACION */
 #nav-bar {
   display: flex;
   width: 100%;
@@ -77,12 +78,14 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 60%;
+  width: 80%;
+  padding-right: 25px;
 }
 
 #btn-vinos a {
   text-decoration: none;
   color: #7c1f24;
+  padding-right: 15px 25px 0 0;
 }
 
 #btn-vinos a:hover {
@@ -136,6 +139,7 @@ footer {
 
 #wines-h1 {
   text-align: center;
+  font-size: 2.5em;
 }
 
 .wines {
@@ -147,31 +151,68 @@ footer {
 }
 
 .wines img {
-  
   padding: 0 30px 30px 0;
 }
 
+/* INDEX */
+
 #index-bg {
-  padding-top: 250px;
+  display: flex;
+  padding: 30px 80px 50px 0;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  border-radius: 35px;
   background-color: #edd5d6;
-  height: 650px;
+  height: 550px;
+  margin: 0 auto;
+  width: 80%;
 }
 
 #index-bg h3{
-  font-size: 1.9em;
+  font-size: 1.6em;
   font-weight: 700;
   font-style: italic;
   padding-bottom: 20px;
-
 }
 
-.btn-index {
+#subtitulo {
+  font-size: 1.6em;
+  font-weight: 700;
+  text-align: center;
+  color: #7c1f24;
+  padding-bottom: 25px;
+}
+
+.index-articles h2 {
+  font-size: 1.3em;
+  font-weight: 900;
+  font-style: italic;
+}
+
+.index-articles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 60px;
+  width: 50%;
+}
+
+/* #index-bg p{
+  margin-left: 250px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+} */
+
+.link-btn {
   border-style: none;
   padding: 5px 10px;
   background-color: #7c1f24;
   color: white;
   border-radius: 5px;
+  text-decoration: none;
 }
 
 /* REGISTRO - SIGNUP */

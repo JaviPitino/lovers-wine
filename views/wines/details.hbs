@@ -1,14 +1,15 @@
 <h1>wines details</h1>
-
-    <li>Nombre: {{vinoDetalle.nombre}}</li>
-    <li>Tipo de Vino: {{vinoDetalle.tipoVino}}</li>
-    <li>Añada: {{vinoDetalle.anada}}</li>
-    <li>Año: {{ vinoDetalle.ano}}</li>
-    <li>Denominación de Origen:{{ vinoDetalle.denOrigen}}</li>
-    <li>Puntuación: {{ vinoDetalle.puntuacion}}, sobre 5</li>
-    <li>Maridaje: {{ vinoDetalle.maridaje}}</li>
-
-   <img src="{{vinoDetalle.vinoPicture}}" alt="image" width="200px">
+  <img src="{{vinoDetalle.vinoPicture}}" alt="image" width="100px">
+  <ul class="list-group">
+    <li class="list-group-item">Nombre: {{vinoDetalle.nombre}}</li>
+    <li class="list-group-item">Tipo de Vino: {{vinoDetalle.tipoVino}}</li>
+    <li class="list-group-item">Añada: {{vinoDetalle.anada}}</li>
+    <li class="list-group-item">Año: {{ vinoDetalle.ano}}</li>
+    <li class="list-group-item">Denominación de Origen:{{ vinoDetalle.denOrigen}}</li>
+    <li class="list-group-item">Puntuación: {{ vinoDetalle.puntuacion}}, sobre 5</li>
+    <li class="list-group-item">Maridaje: {{ vinoDetalle.maridaje}}</li>
+</ul>
+  
 
     {{#if userRole}}
       <form action="/profile/wish-list/{{vinoDetalle._id}}" method="POST">
