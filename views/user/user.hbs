@@ -1,16 +1,16 @@
-  <h1>{{wineUser.username}}</h1>
+<h3 id="wines-h1">{{wineUser.username}}</h3>
   
 <div id="content-user">
-    <img src="{{wineUser.image}}" class="img-thumbnail" alt="Imagen perfil">
+    <img src="{{wineUser.image}}" alt="Imagen perfil">
     <br>
     <br>
-  
+  <div class="conten-btn">
     {{#if userRole}}
       <a href="/profile/wish-list"> Lista de vinos favoritos </a>
     {{/if}}
-
-
-
+  </div>
+</div>
+<div  class="conten-btn">
     {{#if adminRole}}
       <a class="btn-list" href="/wines/list"> Lista de vinos creados </a>
       <a class="btn-list" href="/wines/create"> Crear vinos </a>
@@ -19,11 +19,11 @@
           <li>{{this.nombre}}</li>
         {{/each}} --}}  
     {{/if}}
+</div>
 
-  <form action="/profile" method="POST" enctype="multipart/form-data">
+<form class="add-img" action="/profile" method="POST" enctype="multipart/form-data">
     <input type="file" name="image">
 
-    <button type="submit"  type="button" class="btn btn-primary btn-sm"> Añade Foto de Perfil </button>
+    <button type="submit"> Añade Foto de Perfil </button>
 
-  </form>
-</div>
+</form>

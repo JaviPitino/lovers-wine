@@ -111,8 +111,10 @@ body {
 
 #content-user {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 #content-user img {
@@ -124,13 +126,69 @@ body {
   background-color: #7c1f24!important;
 } */
 
-.btn-list {
-    text-decoration: none;
-    border-style: none;
-    padding: 5px 10px;
-    background-color: #7c1f24;
-    color: white;
-    border-radius: 5px;
+.conten-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.conten-btn a {
+  margin-top: 20px;
+  text-decoration: none;
+  border-style: none;
+  padding: 5px 10px;
+  background-color: #7c1f24;
+  color: white;
+  border-radius: 5px;
+}
+
+.conten-btn a:hover {
+  font-weight: 700;
+  color: white;
+  
+}
+
+/*FORM-EDIT*/
+input, label {
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  align-items: center;
+}
+
+form.form-edit {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+
+.add-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  text-decoration: none;
+  border-style: none;
+  padding: 5px 10px;
+  background-color: #7c1f24;
+  color: white;
+  border-radius: 5px;
+}
+
+.btn-list a {
+  margin-top: 20px;
+  text-decoration: none;
+  border-style: none;
+  padding: 5px 10px;
+  background-color: #7c1f24;
+  color: white;
+  border-radius: 5px;
 }
 
 #cont-vinos a {
@@ -149,7 +207,7 @@ body {
   list-style: none;
 }
 
-#btn-volver{
+#btn-volver {
   padding: 5px;
   justify-content: center;
   text-align: center;
