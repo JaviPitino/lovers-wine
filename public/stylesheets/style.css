@@ -61,7 +61,6 @@ body {
   align-items: center;
   justify-content: center;
   padding-right: 20px;
-
 }
 
 #btn-like {
@@ -75,11 +74,32 @@ body {
   text-decoration: none;
     border-style: none;
     padding: 5px 10px;
-    border: #7c1f24 2px solid;
+    background-color: #7c1f24;
     color: white;
     border-radius: 5px;
 }
 
+#form-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
+}
+
+/* #comentario {
+  padding-bottom: px; */
+/* } */
+
+#comentario-btn {
+  margin-top: 20px;
+  text-decoration: none;
+  border-style: none;
+  padding: 5px 10px;
+  background-color: #7c1f24;
+  color: white;
+  border-radius: 5px;
+}
 
 #home a {
   text-decoration: none; 
