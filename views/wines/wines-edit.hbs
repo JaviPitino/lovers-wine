@@ -1,66 +1,86 @@
 <h3 id="wines-h1">Edita el vino</h3>
+<div class="todovino">
+    <a href="/profile"><i class="bi bi-arrow-counterclockwise"></i><svg id="btn-volver" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+      <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+    </svg></a>
+</div>
+<br />
+<div class="formulario-editar">
+  <form
+    class="form-edit"
+    action="/wines/{{vinoActua._id}}/upload"
+    method="POST"
+    enctype="multipart/form-data">
 
-  <form class="form-edit" action="/wines/{{vinoActua._id}}/upload" method="POST" enctype="multipart/form-data" >
-
-    <label for="nombre">Nombre: </label>
-    <input type="text" name="nombre" value="{{vinoActua.nombre}}"> 
-
-    <label for="tipoVino">Tipo Vino: </label>
+    <label for="nombre"><strong> Nombre: &nbsp; </strong></label>
+    <input type="text" name="nombre" value="{{vinoActua.nombre}}" />
+    <br />
+    <br />
+    <label for="tipoVino"><strong> Tipo de Vino: &nbsp; </strong></label>
     <select name="tipoVino">
-        <option value="{{vinoActua.tipoVino}}">{{vinoActua.tipoVino}}</option>
-        <option disabled="true">__________</option>
+      <option value="{{vinoActua.tipoVino}}">{{vinoActua.tipoVino}}</option>
+      <option disabled="true">__________</option>
       {{#each tipoVino}}
-        <option value="{{ this }}">{{ this }}</option>
+        <option value="{{this}}">{{this}}</option>
       {{/each}}
     </select>
-
-    <label for="anada">Añada: </label>
+    <br />
+    <br />
+    <label for="anada"><strong> Añada: &nbsp; </strong></label>
     <select name="anada">
-        <option value="{{vinoActua.anada}}">{{vinoActua.anada}}</option>
-        <option disabled="true">__________</option>
+      <option value="{{vinoActua.anada}}">{{vinoActua.anada}}</option>
+      <option disabled="true">__________</option>
       {{#each anada}}
-        <option value="{{ this }}">{{ this }}</option>
+        <option value="{{this}}">{{this}}</option>
       {{/each}}
     </select>
-
-    <label for="ano">Año: </label>
-    <input type="text" name="ano" value="{{vinoActua.ano}}">
-
-    <label for="denOrigen">Denominación de Origen:  </label>
+    <br />
+    <br />
+    <label for="ano"><strong> Año: &nbsp; </strong></label>
+    <input type="text" name="ano" value="{{vinoActua.ano}}" />
+    <br />
+    <br />
+    <label for="denOrigen"><strong>
+        Denominación de Origen: &nbsp;
+      </strong></label>
     <select name="denOrigen">
       <option value="{{vinoActua.denOrigen}}">{{vinoActua.denOrigen}}</option>
       <option disabled="true">__________</option>
-    {{#each denOrigen}}
-    <option value="{{ this }}">{{ this }}</option>
-    {{/each}}
+      {{#each denOrigen}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
     </select>
-
-    <label for="puntuacion">Puntuación: </label>
+    <br />
+    <br />
+    <label for="puntuacion"><strong> Puntuación: &nbsp; </strong></label>
     <select name="puntuacion">
       <option value="{{vinoActua.puntuacion}}">{{vinoActua.puntuacion}}</option>
       <option disabled="true">__________</option>
-    {{#each puntuacion}}
-      <option value="{{ this }}">{{ this }}</option>
-    {{/each}}
+      {{#each puntuacion}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
     </select>
-
-
-    <label for="maridaje">Maridaje: </label>
+    <br />
+    <br />
+    <label for="maridaje"> <strong> Maridaje: &nbsp; </strong></label>
     <select name="maridaje" multiple="true">
       <option value="{{vinoActua.maridaje}}">{{vinoActua.maridaje}}</option>
       <option disabled="true">__________</option>
-    {{#each maridaje}}
-      <option value="{{ this }}">{{ this }}</option>
-    {{/each}}
+      {{#each maridaje}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
     </select>
+    <br />
+    <br />
 
+    <label for="image"> <strong> Imagen: &nbsp; </strong></label>
+    <input type="file" name="image" />
 
-    <label for="image"> Imagen: </label>
-    <input type="file" name="image">
+    <img src="{{vinoActua.vinoPicture}}" alt="fotoVino" width="50px" />
+    <br />
+    <br />
+    <button class="addvino" type="submit">Actualizar Vino</button>
 
-  <img src="{{vinoActua.vinoPicture}}" alt="fotoVino" width="30px"> 
-  <br>
-  <button class="addvino" type="submit">Actualizar Vino</button>
-
-</form>
-
+  </form>
+</div>
