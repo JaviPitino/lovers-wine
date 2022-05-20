@@ -355,6 +355,10 @@ footer {
   padding-bottom: 20px;
 }
 
+.text {
+  width: 60%;
+}
+
 #subtitulo {
   font-size: 1.6em;
   font-weight: 700;
