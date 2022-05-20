@@ -348,6 +348,19 @@ footer {
   width: 80%;
 }
 
+#index-bg-about {
+  display: flex;
+  padding: 30px 80px 50px 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 35px;
+  background-color: #edd5d6;
+  height: 550px;
+  margin: 0 auto;
+  width: 60%;
+}
+
 #index-bg h3{
   font-size: 1.6em;
   font-weight: 700;
