@@ -20,9 +20,9 @@ require("./config")(app);
 
 // default value for title local
 const capitalized = require("./utils/capitalized");
-const projectName = "Wines Routes";
+const projectName = "Wines.Routes }";
 
-app.locals.appTitle = `${capitalized(projectName)} created by MariJá`;
+app.locals.appTitle = `${capitalized(projectName)}`;
 
 // MIDDLEWARE QUE ACTUALIZA LAS VARIABLES GLOBALES EN CADA REQUEST
 app.use((req, res, next) => {

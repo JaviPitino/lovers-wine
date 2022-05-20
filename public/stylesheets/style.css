@@ -160,18 +160,16 @@ body {
 
 /*FORM-EDIT*/
 input, label {
-  display: flex;
+  display: inline;
   text-align: center;
   flex-direction: row;
   align-items: center;
 }
 
 .form-edit {
-  display: flex;
   text-align: center;
   flex-direction: column;
   align-items: center;
-
 }
 
 
@@ -338,8 +336,7 @@ footer {
 
 #index-bg {
   display: flex;
-  padding: 30px 80px 50px 0;
-  align-items: center;
+  padding: 80px 80px 50px 0;
   justify-content: center;
   text-align: center;
   border-radius: 35px;
@@ -413,7 +410,7 @@ footer {
 }
 
 .addvino {
-  display: flex;
+ 
   justify-content: center;
   align-items: center;
   text-decoration: none;
