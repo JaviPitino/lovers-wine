@@ -5,8 +5,6 @@
     <label for="nombre">Nombre: </label>
     <input type="text" name="nombre" value="{{vinoActua.nombre}}"> 
 
-  <br>
-
     <label for="tipoVino">Tipo Vino: </label>
     <select name="tipoVino">
         <option value="{{vinoActua.tipoVino}}">{{vinoActua.tipoVino}}</option>
@@ -15,8 +13,6 @@
         <option value="{{ this }}">{{ this }}</option>
       {{/each}}
     </select>
-
-    <br>
 
     <label for="anada">Añada: </label>
     <select name="anada">
@@ -27,12 +23,8 @@
       {{/each}}
     </select>
 
-    <br>
-
     <label for="ano">Año: </label>
     <input type="text" name="ano" value="{{vinoActua.ano}}">
-
-    <br>
 
     <label for="denOrigen">Denominación de Origen:  </label>
     <select name="denOrigen">
@@ -43,8 +35,6 @@
     {{/each}}
     </select>
 
-    <br>
-
     <label for="puntuacion">Puntuación: </label>
     <select name="puntuacion">
       <option value="{{vinoActua.puntuacion}}">{{vinoActua.puntuacion}}</option>
@@ -54,7 +44,6 @@
     {{/each}}
     </select>
 
-    <br>
 
     <label for="maridaje">Maridaje: </label>
     <select name="maridaje" multiple="true">
@@ -65,13 +54,12 @@
     {{/each}}
     </select>
 
-    <br>
 
     <label for="image"> Imagen: </label>
     <input type="file" name="image">
 
   <img src="{{vinoActua.vinoPicture}}" alt="fotoVino" width="30px"> 
-
+  <br>
   <button class="addvino" type="submit">Actualizar Vino</button>
 
 </form>
