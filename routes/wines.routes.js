@@ -154,9 +154,9 @@ router.post("/:id/upload", isAdmin, cloudinary.single("image"), async (req, res,
   if(req.file) {
     imageToAdd = req.file.path
   } else {
-    console.log("¨NO IMAGE TO ADD")
+    console.log("NO IMAGE TO ADD")
   }
-
+console.log(req.file)
   try{
    await VinoModel.findByIdAndUpdate(id, {
     nombre,
