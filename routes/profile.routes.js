@@ -56,7 +56,7 @@ router.get("/wish-list", async (req, res, next) => {
 
 })
 
-// POST ("/profile/wish-list") ->
+// POST ("/profile/wish-list") -> Añade elemento a la lista de favoritos
 router.post("/wish-list/:favId", async (req, res, next) => {
     const { _id } = req.session.user
     const { favId } = req.params
