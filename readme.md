@@ -5,8 +5,8 @@
 Wine.Routes is a platform for wine lovers to get to know different varieties of wine and share their opinions about them.
 
 ## User stories
-As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
-As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault.
+404 - As a user I want to see a nice 404 page when I go to a page that doesn’t exist so that I know it was my fault.
+500 - As a user I want to see a nice error page when the super team screws it up so that I know that is not my fault.
 login-signup - As a user, I want to see a welcome page that gives me the option of logging in as an existing user, or registering with a new account.
 add-signup - As a user, I want to register with my full details so that I can log in securely.
 home page : As a user, I want to see a preview of the wine categories and be able to search by wine type or go to my profile from the home page or be able to log out.  
